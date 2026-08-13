@@ -1,0 +1,34 @@
+site_name: TRƯỜNG YÊN FOOD OS
+site_description: Enterprise Knowledge Operating System
+site_author: Con cháu họ Đặng - Trường Yên - Hoa Lư - Ninh Bình
+
+theme:
+  name: material
+  language: vi
+
+  palette:
+    - scheme: default
+      primary: brown
+      accent: amber
+
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Trang chủ: index.md
