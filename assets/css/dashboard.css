@@ -1,0 +1,186 @@
+/* =========================================================
+   TRƯỜNG YÊN FOOD OS
+   Dashboard Visual System v1
+   ========================================================= */
+
+:root {
+  --ty-brown: #7a5b4d;
+  --ty-brown-dark: #62483d;
+  --ty-brown-soft: #927364;
+
+  --ty-bg: #111416;
+  --ty-surface: #191c1e;
+  --ty-surface-hover: #202427;
+  --ty-border: rgba(255, 255, 255, 0.08);
+
+  --ty-text: #f1eee9;
+  --ty-text-muted: #aaa39d;
+  --ty-text-soft: #c9c3bd;
+
+  --ty-radius: 14px;
+  --ty-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* ---------------------------------------------------------
+   Dashboard container
+   --------------------------------------------------------- */
+
+.ty-dashboard {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ---------------------------------------------------------
+   Hero
+   --------------------------------------------------------- */
+
+.ty-hero {
+  padding: 34px 0 28px;
+  border-bottom: 1px solid var(--ty-border);
+  margin-bottom: 36px;
+}
+
+.ty-hero h1 {
+  margin-bottom: 8px;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.ty-hero-subtitle {
+  color: var(--ty-text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 24px;
+}
+
+.ty-hero-note {
+  padding: 18px 20px;
+  border-left: 3px solid var(--ty-brown-soft);
+  background: rgba(122, 91, 77, 0.08);
+  color: var(--ty-text-soft);
+}
+
+/* ---------------------------------------------------------
+   Platform heading
+   --------------------------------------------------------- */
+
+.ty-section-title {
+  margin: 0 0 22px;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------
+   Module grid
+   --------------------------------------------------------- */
+
+.ty-module-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 42px;
+}
+
+.ty-module-card {
+  display: block;
+  padding: 24px;
+  border: 1px solid var(--ty-border);
+  border-radius: var(--ty-radius);
+  background: var(--ty-surface);
+  box-shadow: var(--ty-shadow);
+  color: var(--ty-text);
+  text-decoration: none !important;
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+.ty-module-card:hover {
+  transform: translateY(-3px);
+  background: var(--ty-surface-hover);
+  border-color: rgba(146, 115, 100, 0.45);
+}
+
+.ty-module-icon {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.ty-module-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.ty-module-description {
+  color: var(--ty-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.ty-module-count {
+  color: var(--ty-brown-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---------------------------------------------------------
+   Architecture
+   --------------------------------------------------------- */
+
+.ty-architecture {
+  padding: 26px;
+  margin-top: 10px;
+  border: 1px solid var(--ty-border);
+  border-radius: var(--ty-radius);
+  background: var(--ty-surface);
+}
+
+.ty-architecture-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.ty-architecture-step {
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: var(--ty-brown-dark);
+  color: var(--ty-text);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.ty-architecture-arrow {
+  color: var(--ty-text-muted);
+}
+
+/* ---------------------------------------------------------
+   Mobile
+   --------------------------------------------------------- */
+
+@media screen and (max-width: 768px) {
+  .ty-module-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ty-hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .ty-architecture-flow {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ty-architecture-arrow {
+    text-align: center;
+  }
+}

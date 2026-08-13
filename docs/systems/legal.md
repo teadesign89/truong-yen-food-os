@@ -27,6 +27,15 @@ Legal quản trị việc nhận diện, theo dõi và kiểm soát các vấn �
 | Lao động | Hợp đồng, chính sách và nghĩa vụ liên quan | Chờ xác lập | Chờ rà soát |
 | Dữ liệu và truyền thông | Quyền sử dụng, quyền riêng tư và nội dung công bố | Chờ xác lập | Chờ rà soát |
 
+### Hồ sơ doanh nghiệp đang theo dõi
+
+| Hạng mục | Thông tin ghi nhận | Trạng thái theo dõi |
+| --- | --- | --- |
+| Mã số doanh nghiệp / thuế | 2701011821 | Theo dữ liệu do Giám đốc cung cấp |
+| Người đại diện | Đặng Ngọc Tú | Do Giám đốc xác nhận |
+| Địa chỉ đăng ký | Tổ dân phố Minh Hoa, Phường Tây Hoa Lư, Tỉnh Ninh Bình, Việt Nam | Theo dữ liệu do Giám đốc cung cấp |
+| Tình trạng hoạt động | Chờ xác minh tình trạng hoạt động tại địa chỉ đã đăng ký | Cần cập nhật khi có nguồn xác thực phù hợp |
+
 ## 3. Quản lý hợp đồng
 
 | Giai đoạn | Mục tiêu | Hồ sơ đầu ra |

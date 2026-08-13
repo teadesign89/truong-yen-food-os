@@ -1,48 +1,50 @@
 # Company Profile
 
-> **Trạng thái:** Bản khung — chờ phê duyệt
+> **Trạng thái:** Bản dự thảo 1.0 — chờ Giám đốc phê duyệt
 >
-> **Chủ sở hữu:** Ban lãnh đạo và bộ phận phụ trách thương hiệu TRƯỜNG YÊN FOOD
+> **Chủ sở hữu & người phê duyệt:** Giám đốc Đặng Ngọc Tú
 
 ## Vai trò
 
-Company Profile là hồ sơ giới thiệu thống nhất của TRƯỜNG YÊN FOOD. Nội dung phải phản ánh đúng Enterprise Constitution, Brand System và các thông tin doanh nghiệp đã được xác thực.
+Company Profile là hồ sơ giới thiệu thống nhất của TRƯỜNG YÊN FOOD. Nội dung phải phản ánh đúng Enterprise Constitution, Brand System và thông tin doanh nghiệp đã được cung cấp hoặc xác thực.
 
 ## 1. Thông tin nhận diện doanh nghiệp
 
-| Hạng mục | Nội dung | Trạng thái xác thực |
+| Hạng mục | Nội dung | Trạng thái |
 | --- | --- | --- |
-| Tên pháp lý | Chờ xác lập | Chờ xác thực |
-| Tên thương hiệu | TRƯỜNG YÊN FOOD | Chờ xác thực |
-| Địa chỉ | Chờ xác lập | Chờ xác thực |
-| Mã số doanh nghiệp / thuế | Chờ xác lập | Chờ xác thực |
-| Website và kênh liên hệ | Chờ xác lập | Chờ xác thực |
+| Tên pháp lý | Công ty TNHH Công nghệ Thực phẩm Trường Yên | Theo dữ liệu doanh nghiệp do Giám đốc cung cấp |
+| Tên quốc tế | TRUONG YEN FOOD TECHNOLOGY LIMITED COMPANY | Theo dữ liệu doanh nghiệp do Giám đốc cung cấp |
+| Tên viết tắt | TRUONG YEN FOOD TECHNOLOGY CO.,LTD | Theo dữ liệu doanh nghiệp do Giám đốc cung cấp |
+| Tên thương hiệu | TRƯỜNG YÊN FOOD | Bản dự thảo Brand System |
+| Mã số doanh nghiệp / thuế | 2701011821 | Theo dữ liệu doanh nghiệp do Giám đốc cung cấp |
+| Loại hình | Công ty trách nhiệm hữu hạn ngoài nhà nước | Theo dữ liệu doanh nghiệp do Giám đốc cung cấp |
+| Người đại diện & Giám đốc | Đặng Ngọc Tú | Do Giám đốc xác nhận |
+| Địa chỉ đăng ký | Tổ dân phố Minh Hoa, Phường Tây Hoa Lư, Tỉnh Ninh Bình, Việt Nam | Theo dữ liệu doanh nghiệp do Giám đốc cung cấp |
+| Cơ quan quản lý thuế | Thuế cơ sở 1 tỉnh Ninh Bình | Theo dữ liệu doanh nghiệp do Giám đốc cung cấp |
+| Ngày hoạt động ghi nhận | 29/07/2026 | Theo dữ liệu doanh nghiệp do Giám đốc cung cấp |
+| Ngành nghề chính ghi nhận | Bán buôn thực phẩm (trừ động vật hoang dã) | Theo dữ liệu doanh nghiệp do Giám đốc cung cấp |
+| Website và kênh liên hệ | Chờ thiết lập | Chưa công bố |
+
+> **Lưu ý trạng thái:** dữ liệu được cung cấp cho thấy trạng thái đăng ký đang là **“Chờ xác minh tình trạng hoạt động tại địa chỉ đã đăng ký”**. Đây không phải xác nhận doanh nghiệp đang hoạt động; tình trạng sẽ được cập nhật sau khi có nguồn xác thực phù hợp.
 
 ## 2. Câu chuyện doanh nghiệp
 
 ### Nguồn gốc
 
-*Chờ xác lập và xác thực tư liệu.*
+TRƯỜNG YÊN FOOD được định hướng từ tình yêu với quê hương Trường Yên – Hoa Lư – Ninh Bình và mong muốn đưa những giá trị thực phẩm Việt được làm tử tế đến gần hơn với khách hàng.
 
-### Hành trình phát triển
+### Định hướng phát triển
 
-| Mốc thời gian | Sự kiện | Nguồn xác thực |
-| --- | --- | --- |
-| Chờ xác lập |  |  |
-| Chờ xác lập |  |  |
-
-### Giá trị kế thừa
-
-Nội dung về quê hương Trường Yên – Hoa Lư – Ninh Bình và tinh thần tiếp nối của con cháu họ Đặng chỉ được công bố sau khi có bản biên soạn được phê duyệt.
+Doanh nghiệp xây dựng nền tảng quản trị dựa trên chất lượng thực chất, sự minh bạch và tinh thần gìn giữ cội nguồn. Từng sản phẩm, quy trình và điểm chạm thương hiệu được phát triển có kiểm soát để tạo dựng niềm tin lâu dài.
 
 ## 3. Năng lực và hoạt động
 
-| Lĩnh vực | Mô tả | Bằng chứng / nguồn xác thực |
+| Lĩnh vực | Mô tả | Trạng thái |
 | --- | --- | --- |
-| Sản phẩm | Chờ xác lập | Chờ bổ sung |
-| Sản xuất | Chờ xác lập | Chờ bổ sung |
-| Chất lượng | Chờ xác lập | Chờ bổ sung |
-| Phân phối | Chờ xác lập | Chờ bổ sung |
+| Thực phẩm | Hoạt động chính ghi nhận: bán buôn thực phẩm, trừ động vật hoang dã. | Theo dữ liệu doanh nghiệp cung cấp |
+| Sản phẩm | Danh mục sản phẩm sẽ được quản trị tại Product System. | Chờ xác lập |
+| Chất lượng | Hệ thống kiểm soát được thiết kế tại QA GATE. | Bản khung đang hoàn thiện |
+| Chuỗi cung ứng | Quản trị nhà cung cấp, kho và giao nhận tại Supply Chain. | Bản khung đang hoàn thiện |
 
 ## 4. Danh mục sản phẩm và thị trường
 
@@ -54,37 +56,13 @@ Nội dung về quê hương Trường Yên – Hoa Lư – Ninh Bình và tinh 
 
 ## 5. Cam kết doanh nghiệp
 
-Các cam kết công bố trong Company Profile phải được đối chiếu với chính sách chất lượng, pháp lý, năng lực vận hành và bằng chứng hiện hành.
-
 | Cam kết | Cơ sở đối chiếu | Trạng thái |
 | --- | --- | --- |
-| Chờ xác lập |  | Chờ phê duyệt |
-| Chờ xác lập |  | Chờ phê duyệt |
+| Cung cấp thông tin minh bạch và có kiểm soát | Enterprise Constitution, Legal và Knowledge Base | Bản dự thảo |
+| Không ngừng nâng cao chất lượng và trải nghiệm khách hàng | Enterprise Constitution, QA GATE và Product System | Bản dự thảo |
 
-## 6. Gói hồ sơ phát hành
-
-| Phiên bản | Đối tượng sử dụng | Thành phần | Người phê duyệt |
-| --- | --- | --- | --- |
-| Hồ sơ tổng quan | Đối tác, khách hàng | Chờ xác lập | Chờ xác lập |
-| Hồ sơ năng lực | Đối tác chuyên môn | Chờ xác lập | Chờ xác lập |
-| Hồ sơ truyền thông | Kênh truyền thông | Chờ xác lập | Chờ xác lập |
-
-## 7. Quy trình phê duyệt và phát hành
-
-1. Thu thập thông tin có nguồn xác thực.
-2. Biên soạn theo Brand System và kiểm tra tính nhất quán.
-3. Rà soát pháp lý, số liệu và các tuyên bố công khai.
-4. Ban hành phiên bản được phê duyệt, lưu tại Knowledge Platform.
-
-## 8. Kiểm soát phiên bản
+## 6. Kiểm soát phiên bản
 
 | Phiên bản | Ngày hiệu lực | Nội dung thay đổi | Người phê duyệt |
 | --- | --- | --- | --- |
-| 0.1 | Chờ xác lập | Tạo bản khung | Chờ xác lập |
-
-## 9. Nội dung cần xác lập
-
-- Thông tin pháp lý và đầu mối liên hệ chính thức.
-- Câu chuyện doanh nghiệp, các cột mốc và nguồn tư liệu.
-- Năng lực, sản phẩm, thị trường và các bằng chứng có thể công bố.
-- Danh mục hồ sơ cần phát hành và thẩm quyền phê duyệt.
+| 1.0-draft | Chờ phê duyệt | Bổ sung dữ liệu doanh nghiệp và câu chuyện định hướng | Đặng Ngọc Tú |

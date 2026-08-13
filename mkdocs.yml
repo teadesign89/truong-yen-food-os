@@ -22,7 +22,8 @@ theme:
 
 plugins:
   - search
-
+extra_css:
+  - assets/css/dashboard.css
 markdown_extensions:
   - admonition
   - attr_list
@@ -32,19 +33,30 @@ markdown_extensions:
 
 nav:
   - Dashboard: index.md
-  - Nền tảng:
-      - Enterprise Constitution: systems/enterprise-constitution.md
-      - Brand System: systems/brand-system.md
-      - Company Profile: systems/company-profile.md
+
+  - Knowledge:
       - Knowledge Base: systems/knowledge-base.md
-  - Vận hành & chất lượng:
-      - QA GATE: systems/qa-gate.md
+      - AI Knowledge: systems/ai-knowledge.md
+
+  - Company:
+      - Enterprise Constitution: systems/enterprise-constitution.md
+      - Company Profile: systems/company-profile.md
+
+  - Brand:
+      - Brand System: systems/brand-system.md
+
+  - Products:
       - Product System: systems/product-system.md
       - Packaging: systems/packaging.md
+
+  - Operations:
       - Production: systems/production.md
       - Supply Chain: systems/supply-chain.md
-  - Quản trị & tăng trưởng:
+
+  - Business:
       - Marketing: systems/marketing.md
       - Finance: systems/finance.md
+
+  - Governance:
+      - QA GATE: systems/qa-gate.md
       - Legal: systems/legal.md
-      - AI Knowledge: systems/ai-knowledge.md

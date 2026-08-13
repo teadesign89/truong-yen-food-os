@@ -12,11 +12,11 @@ Brand System chuyển hóa định hướng của Enterprise Constitution thành
 
 | Thành phần | Nội dung | Trạng thái |
 | --- | --- | --- |
-| Mục đích thương hiệu | Chờ xác lập | Chờ phê duyệt |
-| Định vị thương hiệu | Chờ xác lập | Chờ phê duyệt |
-| Khách hàng trọng tâm | Chờ xác lập | Chờ phê duyệt |
-| Lời hứa thương hiệu | Chờ xác lập | Chờ phê duyệt |
-| Tính cách thương hiệu | Chờ xác lập | Chờ phê duyệt |
+| Mục đích thương hiệu | Gìn giữ và lan tỏa giá trị ẩm thực Việt mang dấu ấn Trường Yên. | Bản dự thảo |
+| Định vị thương hiệu | Thương hiệu thực phẩm Việt theo đuổi chất lượng thực chất, sự tử tế và bản sắc quê hương. | Bản dự thảo |
+| Khách hàng trọng tâm | Người tiêu dùng và đối tác tìm kiếm sản phẩm thực phẩm đáng tin cậy, minh bạch và giàu giá trị Việt. | Bản dự thảo |
+| Lời hứa thương hiệu | Mỗi sản phẩm được làm chỉn chu, an tâm sử dụng và nhất quán với cam kết chất lượng. | Bản dự thảo |
+| Tính cách thương hiệu | Tử tế, chân thành, chỉn chu, gần gũi và đáng tin. | Bản dự thảo |
 
 ## 2. Kiến trúc thương hiệu
 
@@ -24,7 +24,7 @@ Xác định mối quan hệ giữa thương hiệu TRƯỜNG YÊN FOOD, các d�
 
 | Thành phần | Vai trò | Quy tắc sử dụng |
 | --- | --- | --- |
-| Thương hiệu mẹ | Chờ xác lập | Chờ xác lập |
+| Thương hiệu mẹ | TRƯỜNG YÊN FOOD | Dùng làm thương hiệu chính trong các tài liệu và điểm chạm được phê duyệt. |
 | Dòng sản phẩm | Chờ xác lập | Chờ xác lập |
 | Thương hiệu thành phần | Chờ xác lập | Chờ xác lập |
 
@@ -44,9 +44,9 @@ Tài sản nhận diện được phê duyệt sẽ được lưu trong thư m�
 
 | Hạng mục | Nội dung |
 | --- | --- |
-| Thông điệp thương hiệu | Chờ xác lập |
+| Thông điệp thương hiệu | Chất lượng thực chất, gìn giữ giá trị Việt. |
 | Thông điệp theo nhóm khách hàng | Chờ xác lập |
-| Giọng điệu truyền thông | Chờ xác lập |
+| Giọng điệu truyền thông | Chân thành, rõ ràng, trân trọng nguồn cội và dựa trên sự thật. |
 | Từ ngữ nên dùng / không nên dùng | Chờ xác lập |
 
 ## 5. Quản trị điểm chạm
