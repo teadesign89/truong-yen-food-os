@@ -31,4 +31,20 @@ markdown_extensions:
       permalink: true
 
 nav:
-  - Trang chủ: index.md
+  - Dashboard: index.md
+  - Nền tảng:
+      - Enterprise Constitution: systems/enterprise-constitution.md
+      - Brand System: systems/brand-system.md
+      - Company Profile: systems/company-profile.md
+      - Knowledge Base: systems/knowledge-base.md
+  - Vận hành & chất lượng:
+      - QA GATE: systems/qa-gate.md
+      - Product System: systems/product-system.md
+      - Packaging: systems/packaging.md
+      - Production: systems/production.md
+      - Supply Chain: systems/supply-chain.md
+  - Quản trị & tăng trưởng:
+      - Marketing: systems/marketing.md
+      - Finance: systems/finance.md
+      - Legal: systems/legal.md
+      - AI Knowledge: systems/ai-knowledge.md
