@@ -1,7 +1,13 @@
-/* =========================================
+/* =========================================================
    TRƯỜNG YÊN FOOD OS
+   WORKSPACE SYSTEM
+   Visual System v1.2
+   ========================================================= */
+
+
+/* =========================================================
    WORKSPACE SHELL
-   ========================================= */
+   ========================================================= */
 
 .workspace-shell {
     min-height: 100vh;
@@ -9,7 +15,9 @@
 }
 
 
-/* HEADER */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .workspace-header {
     height: var(--header-height);
@@ -26,12 +34,13 @@
 
     position: sticky;
     top: 0;
-
     z-index: 20;
 }
 
 
-/* BRAND */
+/* =========================================================
+   BRAND
+   ========================================================= */
 
 .workspace-brand {
     display: flex;
@@ -49,10 +58,10 @@
     place-items: center;
 
     background: var(--brand);
-
     color: white;
 
     font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .workspace-brand-name {
@@ -72,12 +81,13 @@
 }
 
 
-/* HEADER ACTIONS */
+/* =========================================================
+   HEADER ACTIONS
+   ========================================================= */
 
 .workspace-header-actions {
     display: flex;
     align-items: center;
-
     gap: 12px;
 }
 
@@ -94,12 +104,20 @@
     background: #f5f4f1;
 
     border: 1px solid var(--border);
-
     border-radius: 20px;
 
     color: var(--muted);
 
     cursor: pointer;
+
+    transition:
+        border-color 0.15s ease,
+        background 0.15s ease;
+}
+
+.workspace-search:hover {
+    border-color: #d5cec5;
+    background: #f8f7f4;
 }
 
 .workspace-notification {
@@ -127,14 +145,15 @@
     border-radius: 50%;
 
     background: var(--brand);
-
     color: white;
 
     font-weight: 600;
 }
 
 
-/* BODY */
+/* =========================================================
+   BODY
+   ========================================================= */
 
 .workspace-body {
     display: flex;
@@ -144,7 +163,9 @@
 }
 
 
-/* SIDEBAR */
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
 
 .workspace-sidebar {
     width: var(--sidebar-width);
@@ -187,12 +208,14 @@
 
     color: #444;
 
-    transition: 0.15s ease;
+    transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        transform 0.15s ease;
 }
 
 .workspace-nav-item span:first-child {
     width: 20px;
-
     text-align: center;
 }
 
@@ -202,12 +225,13 @@
 
 .workspace-nav-item.active {
     background: var(--brand);
-
     color: white;
 }
 
 
-/* MAIN */
+/* =========================================================
+   MAIN
+   ========================================================= */
 
 .workspace-main {
     flex: 1;
@@ -224,7 +248,9 @@
 }
 
 
-/* BREADCRUMB */
+/* =========================================================
+   BREADCRUMB
+   ========================================================= */
 
 .workspace-breadcrumb {
     display: flex;
@@ -244,7 +270,9 @@
 }
 
 
-/* PAGE HEADER */
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
 
 .workspace-page-header {
     display: flex;
@@ -282,10 +310,14 @@
     margin: 0;
 
     color: var(--muted);
+
+    line-height: 1.55;
 }
 
 
-/* ACTIONS */
+/* =========================================================
+   ACTIONS
+   ========================================================= */
 
 .workspace-actions {
     display: flex;
@@ -303,6 +335,11 @@
     font-size: 13px;
 
     cursor: pointer;
+
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease,
+        border-color 0.15s ease;
 }
 
 .workspace-action.secondary {
@@ -321,10 +358,13 @@
 
 .workspace-action:hover {
     opacity: 0.9;
+    transform: translateY(-1px);
 }
 
 
-/* CONTENT */
+/* =========================================================
+   MAIN CONTENT SHELL
+   ========================================================= */
 
 .workspace-content {
     min-height: 400px;
@@ -337,6 +377,11 @@
 
     border-radius: 14px;
 }
+
+
+/* =========================================================
+   PLACEHOLDER
+   ========================================================= */
 
 .workspace-placeholder {
     min-height: 340px;
@@ -381,81 +426,15 @@
 }
 
 
-/* RESPONSIVE */
-
-@media (max-width: 900px) {
-
-    .workspace-sidebar {
-        width: 72px;
-    }
-
-    .workspace-sidebar-title {
-        display: none;
-    }
-
-    .workspace-nav-item {
-        justify-content: center;
-    }
-
-    .workspace-nav-item span:last-child {
-        display: none;
-    }
-
-    .workspace-main {
-        padding: 28px 20px;
-    }
-}
-
-
-@media (max-width: 700px) {
-
-    .workspace-header {
-        padding: 0 16px;
-    }
-
-    .workspace-search {
-        min-width: 40px;
-        width: 40px;
-
-        padding: 0;
-
-        justify-content: center;
-    }
-
-    .workspace-search span {
-        display: none;
-    }
-
-    .workspace-page-header {
-        align-items: flex-start;
-
-        flex-direction: column;
-    }
-
-    .workspace-sidebar {
-        display: none;
-    }
-
-    .workspace-main {
-        padding: 20px 16px;
-    }
-
-    .workspace-content {
-        padding: 20px;
-    }
-}
-/* =========================================
-   KNOWLEDGE WORKSPACE
-   ========================================= */
+/* =========================================================
+   SHARED WORKSPACE CONTENT
+   ========================================================= */
 
 .knowledge-overview {
     display: flex;
     flex-direction: column;
     gap: 34px;
 }
-
-
-/* INTRO */
 
 .knowledge-intro {
     max-width: 760px;
@@ -479,7 +458,9 @@
 }
 
 
-/* SEARCH */
+/* =========================================================
+   SEARCH
+   ========================================================= */
 
 .knowledge-search {
     height: 48px;
@@ -496,6 +477,17 @@
     border: 1px solid var(--border);
 
     border-radius: 10px;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.knowledge-search:focus-within {
+    border-color: var(--brand);
+
+    box-shadow:
+        0 0 0 3px rgba(121, 85, 72, 0.08);
 }
 
 .knowledge-search-icon {
@@ -537,20 +529,9 @@
 }
 
 
-/* SECTION */
-
-.knowledge-section {
-    display: flex;
-    flex-direction: column;
-
-    gap: 16px;
-}
-
-.knowledge-section-heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+/* =========================================================
+   SECTION SYSTEM
+   ========================================================= */
 
 .section-eyebrow {
     display: block;
@@ -565,6 +546,19 @@
     color: var(--brand);
 }
 
+.knowledge-section {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+.knowledge-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .knowledge-section-heading h3 {
     margin: 0;
 
@@ -573,7 +567,9 @@
 }
 
 
-/* CORE KNOWLEDGE GRID */
+/* =========================================================
+   CORE KNOWLEDGE GRID
+   ========================================================= */
 
 .knowledge-grid {
     display: grid;
@@ -648,7 +644,9 @@
 }
 
 
-/* SYSTEM KNOWLEDGE */
+/* =========================================================
+   SYSTEM LIST
+   ========================================================= */
 
 .knowledge-list {
     display: grid;
@@ -677,13 +675,16 @@
 
     transition:
         border-color 0.15s ease,
-        background 0.15s ease;
+        background 0.15s ease,
+        transform 0.15s ease;
 }
 
 .knowledge-list-item:hover {
     border-color: var(--brand);
 
     background: #fcfaf8;
+
+    transform: translateY(-1px);
 }
 
 .knowledge-list-item strong {
@@ -699,35 +700,116 @@
 }
 
 
-/* RESPONSIVE */
+/* =========================================================
+   COMMON SYSTEM CARD
+   Dùng chung cho Company / Brand / Products / QA
+   ========================================================= */
 
-@media (max-width: 1000px) {
+.company-overview,
+.brand-overview,
+.product-overview,
+.qa-overview {
+    display: flex;
+    flex-direction: column;
 
-    .knowledge-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
-
-    .knowledge-list {
-        grid-template-columns:
-            1fr;
-    }
+    gap: 32px;
 }
 
 
-@media (max-width: 600px) {
+/* =========================================================
+   INTRO BLOCK
+   ========================================================= */
 
-    .knowledge-grid {
-        grid-template-columns:
-            1fr;
-    }
-
-    .knowledge-intro h2 {
-        font-size: 22px;
-    }
-
-    .knowledge-search-shortcut {
-        display: none;
-    }
-
+.company-intro,
+.brand-intro,
+.product-intro,
+.qa-intro {
+    max-width: 820px;
 }
+
+.company-intro h2,
+.brand-intro h2,
+.product-intro h2,
+.qa-intro h2 {
+    margin: 0 0 10px;
+
+    font-size: 26px;
+    font-weight: 600;
+
+    letter-spacing: -0.5px;
+}
+
+.company-intro p,
+.brand-intro p,
+.product-intro p,
+.qa-intro p {
+    margin: 0;
+
+    color: var(--muted);
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   GENERIC SYSTEM SECTION
+   ========================================================= */
+
+.company-section,
+.brand-section,
+.product-section,
+.qa-section {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+.company-section-heading,
+.brand-section-heading,
+.product-section-heading,
+.qa-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.company-section-heading h3,
+.brand-section-heading h3,
+.product-section-heading h3,
+.qa-section-heading h3 {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   GENERIC CARD GRID
+   ========================================================= */
+
+.company-grid,
+.brand-grid,
+.product-grid,
+.qa-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   GENERIC SYSTEM CARD
+   ========================================================= */
+
+.company-card,
+.brand-card,
+.product-card,
+.qa-card {
+    min-height: 120px;
+
+    display:

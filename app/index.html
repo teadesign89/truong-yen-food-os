@@ -12,10 +12,138 @@
 
     <title>TRƯỜNG YÊN FOOD OS</title>
 
-    <link
-        rel="stylesheet"
-        href="app.css"
-    >
+    <link rel="stylesheet" href="app.css">
+
+    <style>
+
+        /*
+         * =========================================
+         * UX v1.1 — VISIBLE CHOICE
+         * =========================================
+         */
+
+        .intent-section {
+            margin-top: 36px;
+        }
+
+
+        .intent-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 16px;
+
+            margin-top: 20px;
+        }
+
+
+        .intent-card {
+            display: flex;
+            flex-direction: column;
+
+            min-height: 150px;
+
+            padding: 26px;
+
+            text-decoration: none;
+
+            background: #ffffff;
+
+            border: 1px solid #e7e2da;
+
+            border-radius: 14px;
+
+            transition:
+                transform 0.18s ease,
+                box-shadow 0.18s ease,
+                border-color 0.18s ease;
+        }
+
+
+        .intent-card:hover {
+            transform: translateY(-2px);
+
+            border-color: #c8b59f;
+
+            box-shadow:
+                0 10px 30px rgba(60, 48, 35, 0.08);
+        }
+
+
+        .intent-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 42px;
+            height: 42px;
+
+            margin-bottom: 18px;
+
+            border-radius: 10px;
+
+            background: #f4f0ea;
+
+            font-size: 20px;
+        }
+
+
+        .intent-card strong {
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-size: 17px;
+            line-height: 1.4;
+
+            color: #2b2927;
+        }
+
+
+        .intent-card span {
+            font-size: 14px;
+            line-height: 1.6;
+
+            color: #777067;
+        }
+
+
+        .intent-primary {
+            grid-column: span 2;
+
+            min-height: 120px;
+        }
+
+
+        .intent-primary .intent-icon {
+            margin-bottom: 12px;
+        }
+
+
+        .intent-note {
+            margin-top: 12px;
+
+            font-size: 13px;
+
+            color: #8a8177;
+        }
+
+
+        @media (max-width: 760px) {
+
+            .intent-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .intent-primary {
+                grid-column: span 1;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -31,8 +159,10 @@
 
         <header class="app-header">
 
-
-            <div class="brand">
+            <a
+                href="index.html"
+                class="brand"
+            >
 
                 <div class="brand-mark">
                     TY
@@ -51,38 +181,36 @@
 
                 </div>
 
-            </div>
-
+            </a>
 
 
             <nav class="top-navigation">
 
-                <a href="#">
+                <a href="workspaces/knowledge.html">
                     Knowledge
                 </a>
 
-                <a href="#">
+                <a href="workspaces/company.html">
                     Company
                 </a>
 
-                <a href="#">
+                <a href="workspaces/brand.html">
                     Brand
                 </a>
 
-                <a href="#">
+                <a href="workspaces/products.html">
                     Products
                 </a>
 
             </nav>
 
 
-
             <div class="header-actions">
-
 
                 <button
                     class="search-button"
                     type="button"
+                    id="dashboard-search-button"
                 >
 
                     🔍
@@ -94,17 +222,13 @@
                 </button>
 
 
-
                 <button
                     class="icon-button"
                     type="button"
                     aria-label="Thông báo"
                 >
-
                     🔔
-
                 </button>
-
 
 
                 <button
@@ -122,9 +246,7 @@
 
                 </button>
 
-
             </div>
-
 
         </header>
 
@@ -143,24 +265,19 @@
 
             <aside class="sidebar">
 
-
                 <div class="sidebar-section">
-
 
                     <div class="sidebar-title">
                         HỆ THỐNG
                     </div>
 
 
-
                     <a
                         class="sidebar-item active"
-                        href="#"
+                        href="index.html"
                     >
 
-                        <span>
-                            ⌂
-                        </span>
+                        <span>⌂</span>
 
                         <span>
                             Dashboard
@@ -169,15 +286,12 @@
                     </a>
 
 
-
                     <a
                         class="sidebar-item"
                         href="workspaces/knowledge.html"
                     >
 
-                        <span>
-                            ◈
-                        </span>
+                        <span>◈</span>
 
                         <span>
                             Knowledge
@@ -186,15 +300,12 @@
                     </a>
 
 
-
                     <a
                         class="sidebar-item"
-                        href="#"
+                        href="workspaces/company.html"
                     >
 
-                        <span>
-                            ▣
-                        </span>
+                        <span>▣</span>
 
                         <span>
                             Company
@@ -203,15 +314,12 @@
                     </a>
 
 
-
                     <a
                         class="sidebar-item"
                         href="workspaces/brand.html"
                     >
 
-                        <span>
-                            ◇
-                        </span>
+                        <span>◇</span>
 
                         <span>
                             Brand
@@ -220,15 +328,12 @@
                     </a>
 
 
-
                     <a
                         class="sidebar-item"
                         href="workspaces/products.html"
                     >
 
-                        <span>
-                            □
-                        </span>
+                        <span>□</span>
 
                         <span>
                             Products
@@ -237,75 +342,37 @@
                     </a>
 
 
-
                     <a
                         class="sidebar-item"
-                        href="#"
+                        href="workspaces/qa.html"
                     >
 
-                        <span>
-                            ⚙
-                        </span>
+                        <span>✓</span>
 
                         <span>
-                            Operations
+                            QA GATE
                         </span>
 
                     </a>
-
-
-
-                    <a
-                        class="sidebar-item"
-                        href="#"
-                    >
-
-                        <span>
-                            ↗
-                        </span>
-
-                        <span>
-                            Business
-                        </span>
-
-                    </a>
-
-
-
-                    <a
-                        class="sidebar-item"
-                        href="#"
-                    >
-
-                        <span>
-                            ◉
-                        </span>
-
-                        <span>
-                            Governance
-                        </span>
-
-                    </a>
-
 
                 </div>
-
 
             </aside>
 
 
 
             <!-- =====================================
-                 MAIN WORKSPACE
+                 MAIN CONTENT
                  ===================================== -->
 
             <main class="main-content">
 
-
                 <div class="workspace">
 
 
-                    <!-- BREADCRUMB -->
+                    <!-- =================================
+                         BREADCRUMB
+                         ================================= -->
 
                     <div class="workspace-breadcrumb">
 
@@ -321,10 +388,11 @@
 
 
 
-                    <!-- PAGE HEADER -->
+                    <!-- =================================
+                         PAGE HEADER
+                         ================================= -->
 
                     <div class="workspace-heading">
-
 
                         <div>
 
@@ -340,7 +408,6 @@
 
                         </div>
 
-
                     </div>
 
 
@@ -350,7 +417,6 @@
                          ================================= -->
 
                     <section class="welcome-card">
-
 
                         <div>
 
@@ -374,14 +440,217 @@
 
                             <p>
 
-                                Truy cập nhanh vào tri thức,
-                                sản phẩm, thương hiệu và
-                                hệ thống vận hành.
+                                Hệ thống giúp bạn đi từ mục tiêu
+                                đến đúng nguồn thông tin với
+                                ít thao tác nhất.
 
                             </p>
 
                         </div>
 
+                    </section>
+
+
+
+                    <!-- =================================
+                         INTENT LAYER
+                         ================================= -->
+
+                    <section class="intent-section">
+
+
+                        <div class="section-heading">
+
+                            <div>
+
+                                <span class="section-eyebrow">
+                                    VISIBLE CHOICE
+                                </span>
+
+
+                                <h2>
+                                    Bạn muốn làm gì?
+                                </h2>
+
+                            </div>
+
+
+                            <span class="section-note">
+                                Chọn trực tiếp — không cần nhớ hệ thống
+                            </span>
+
+                        </div>
+
+
+
+                        <div class="intent-grid">
+
+
+                            <!-- =================================
+                                 INTENT 01 — KNOWLEDGE
+                                 ================================= -->
+
+                            <a
+                                href="workspaces/knowledge.html"
+                                class="intent-card intent-primary"
+                            >
+
+                                <span class="intent-icon">
+                                    ◈
+                                </span>
+
+
+                                <strong>
+                                    Tìm tri thức
+                                </strong>
+
+
+                                <span>
+                                    Tìm tài liệu và thông tin chính thức
+                                    của TRƯỜNG YÊN FOOD.
+                                </span>
+
+
+                                <span class="intent-note">
+                                    → Chọn nguồn tri thức cần xem
+                                </span>
+
+                            </a>
+
+
+
+                            <!-- =================================
+                                 INTENT 02 — COMPANY
+                                 ================================= -->
+
+                            <a
+                                href="workspaces/company.html"
+                                class="intent-card"
+                            >
+
+                                <span class="intent-icon">
+                                    ▣
+                                </span>
+
+
+                                <strong>
+                                    Xem doanh nghiệp
+                                </strong>
+
+
+                                <span>
+                                    Xem hồ sơ, hiến pháp và nền tảng
+                                    doanh nghiệp.
+                                </span>
+
+
+                                <span class="intent-note">
+                                    → Đi tới Company
+                                </span>
+
+                            </a>
+
+
+
+                            <!-- =================================
+                                 INTENT 03 — BRAND
+                                 ================================= -->
+
+                            <a
+                                href="workspaces/brand.html"
+                                class="intent-card"
+                            >
+
+                                <span class="intent-icon">
+                                    ◇
+                                </span>
+
+
+                                <strong>
+                                    Làm việc với thương hiệu
+                                </strong>
+
+
+                                <span>
+                                    Truy cập hệ thống thương hiệu
+                                    và tài sản nhận diện.
+                                </span>
+
+
+                                <span class="intent-note">
+                                    → Đi tới Brand
+                                </span>
+
+                            </a>
+
+
+
+                            <!-- =================================
+                                 INTENT 04 — PRODUCTS
+                                 ================================= -->
+
+                            <a
+                                href="workspaces/products.html"
+                                class="intent-card"
+                            >
+
+                                <span class="intent-icon">
+                                    □
+                                </span>
+
+
+                                <strong>
+                                    Làm việc với sản phẩm
+                                </strong>
+
+
+                                <span>
+                                    Quản trị sản phẩm và vòng đời
+                                    sản phẩm.
+                                </span>
+
+
+                                <span class="intent-note">
+                                    → Đi tới Products
+                                </span>
+
+                            </a>
+
+
+
+                            <!-- =================================
+                                 INTENT 05 — QA
+                                 ================================= -->
+
+                            <a
+                                href="workspaces/qa.html"
+                                class="intent-card"
+                            >
+
+                                <span class="intent-icon">
+                                    ✓
+                                </span>
+
+
+                                <strong>
+                                    Kiểm tra chất lượng
+                                </strong>
+
+
+                                <span>
+                                    Truy cập các cổng kiểm soát
+                                    và phê duyệt chất lượng.
+                                </span>
+
+
+                                <span class="intent-note">
+                                    → Đi tới QA GATE
+                                </span>
+
+                            </a>
+
+
+                        </div>
 
                     </section>
 
@@ -393,9 +662,7 @@
 
                     <section class="quick-access">
 
-
                         <div class="section-heading">
-
 
                             <div>
 
@@ -412,18 +679,14 @@
 
 
                             <span class="section-note">
-                                Đến đích trong tối đa 3 click
+                                Dành cho tác vụ thường xuyên
                             </span>
-
 
                         </div>
 
 
-
                         <div class="quick-grid">
 
-
-                            <!-- KNOWLEDGE -->
 
                             <a
                                 href="workspaces/knowledge.html"
@@ -436,19 +699,17 @@
 
 
                                 <strong>
-                                    Knowledge
+                                    Knowledge Base
                                 </strong>
 
 
                                 <span>
-                                    Trung tâm tri thức
+                                    Kho tri thức chính thức
                                 </span>
 
                             </a>
 
 
-
-                            <!-- BRAND -->
 
                             <a
                                 href="workspaces/brand.html"
@@ -473,8 +734,6 @@
 
 
 
-                            <!-- PRODUCTS -->
-
                             <a
                                 href="workspaces/products.html"
                                 class="quick-card"
@@ -497,8 +756,6 @@
                             </a>
 
 
-
-                            <!-- QA -->
 
                             <a
                                 href="workspaces/qa.html"
@@ -524,25 +781,20 @@
 
                         </div>
 
-
                     </section>
 
 
 
                     <!-- =================================
-                         DASHBOARD STATUS
+                         SYSTEM STATUS
                          ================================= -->
 
                     <section class="dashboard-grid">
 
 
-                        <!-- SYSTEM STATUS -->
-
                         <div class="dashboard-panel">
 
-
                             <div class="panel-heading">
-
 
                                 <div>
 
@@ -557,9 +809,7 @@
 
                                 </div>
 
-
                             </div>
-
 
 
                             <div class="status-list">
@@ -571,13 +821,24 @@
                                         Knowledge
                                     </span>
 
-
                                     <span class="status healthy">
                                         Healthy
                                     </span>
 
                                 </div>
 
+
+                                <div class="status-row">
+
+                                    <span>
+                                        Company
+                                    </span>
+
+                                    <span class="status healthy">
+                                        Healthy
+                                    </span>
+
+                                </div>
 
 
                                 <div class="status-row">
@@ -586,13 +847,11 @@
                                         Brand
                                     </span>
 
-
                                     <span class="status healthy">
                                         Healthy
                                     </span>
 
                                 </div>
-
 
 
                                 <div class="status-row">
@@ -601,22 +860,6 @@
                                         Products
                                     </span>
 
-
-                                    <span class="status review">
-                                        Review
-                                    </span>
-
-                                </div>
-
-
-
-                                <div class="status-row">
-
-                                    <span>
-                                        Operations
-                                    </span>
-
-
                                     <span class="status healthy">
                                         Healthy
                                     </span>
@@ -624,13 +867,11 @@
                                 </div>
 
 
-
                                 <div class="status-row">
 
                                     <span>
-                                        Governance
+                                        QA GATE
                                     </span>
-
 
                                     <span class="status healthy">
                                         Healthy
@@ -641,18 +882,17 @@
 
                             </div>
 
-
                         </div>
 
 
 
-                        <!-- RECENT ACTIVITY -->
+                        <!-- =================================
+                             RECENT ACTIVITY
+                             ================================= -->
 
                         <div class="dashboard-panel">
 
-
                             <div class="panel-heading">
-
 
                                 <div>
 
@@ -667,16 +907,14 @@
 
                                 </div>
 
-
                             </div>
-
 
 
                             <div class="activity-list">
 
 
                                 <a
-                                    href="#"
+                                    href="workspaces/brand.html"
                                     class="activity-item"
                                 >
 
@@ -686,7 +924,7 @@
 
 
                                     <span>
-                                        Cập nhật hệ thống thương hiệu
+                                        Mở hệ thống thương hiệu
                                     </span>
 
                                 </a>
@@ -694,7 +932,7 @@
 
 
                                 <a
-                                    href="#"
+                                    href="workspaces/products.html"
                                     class="activity-item"
                                 >
 
@@ -704,7 +942,7 @@
 
 
                                     <span>
-                                        Cập nhật Product Master
+                                        Mở hệ thống sản phẩm
                                     </span>
 
                                 </a>
@@ -722,7 +960,7 @@
 
 
                                     <span>
-                                        Đang chờ kiểm tra
+                                        Mở cổng kiểm soát chất lượng
                                     </span>
 
                                 </a>
@@ -730,7 +968,7 @@
 
 
                                 <a
-                                    href="#"
+                                    href="workspaces/company.html"
                                     class="activity-item"
                                 >
 
@@ -740,7 +978,7 @@
 
 
                                     <span>
-                                        Cập nhật hồ sơ doanh nghiệp
+                                        Xem hồ sơ doanh nghiệp
                                     </span>
 
                                 </a>
@@ -748,28 +986,143 @@
 
                             </div>
 
-
                         </div>
 
 
                     </section>
 
 
-                </div>
 
+                    <!-- =================================
+                         SYSTEM MODULES
+                         ================================= -->
+
+                    <section class="modules-section">
+
+
+                        <div class="section-heading">
+
+                            <div>
+
+                                <span class="section-eyebrow">
+                                    SYSTEM MODULES
+                                </span>
+
+
+                                <h2>
+                                    Các hệ thống
+                                </h2>
+
+                            </div>
+
+
+                            <span class="section-note">
+                                Điều hướng dành cho người đã quen hệ thống
+                            </span>
+
+                        </div>
+
+
+                        <div class="module-grid">
+
+
+                            <a
+                                href="workspaces/knowledge.html"
+                                class="module-card"
+                            >
+
+                                <strong>
+                                    Knowledge
+                                </strong>
+
+                                <span>
+                                    Tri thức
+                                </span>
+
+                            </a>
+
+
+
+                            <a
+                                href="workspaces/company.html"
+                                class="module-card"
+                            >
+
+                                <strong>
+                                    Company
+                                </strong>
+
+                                <span>
+                                    Doanh nghiệp
+                                </span>
+
+                            </a>
+
+
+
+                            <a
+                                href="workspaces/brand.html"
+                                class="module-card"
+                            >
+
+                                <strong>
+                                    Brand
+                                </strong>
+
+                                <span>
+                                    Thương hiệu
+                                </span>
+
+                            </a>
+
+
+
+                            <a
+                                href="workspaces/products.html"
+                                class="module-card"
+                            >
+
+                                <strong>
+                                    Products
+                                </strong>
+
+                                <span>
+                                    Sản phẩm
+                                </span>
+
+                            </a>
+
+
+
+                            <a
+                                href="workspaces/qa.html"
+                                class="module-card"
+                            >
+
+                                <strong>
+                                    QA GATE
+                                </strong>
+
+                                <span>
+                                    Chất lượng
+                                </span>
+
+                            </a>
+
+
+                        </div>
+
+                    </section>
+
+
+                </div>
 
             </main>
 
-
         </div>
 
-
     </div>
-
-
-    <script src="app.js"></script>
-
-
+<script src="app.js"></script>
 </body>
 
 </html>
