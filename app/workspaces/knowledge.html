@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Knowledge — TRƯỜNG YÊN FOOD OS</title>
+
+    <link
+        rel="stylesheet"
+        href="../app.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../components/workspace.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div id="workspace-root"></div>
+
+
+    <script>
+
+        /*
+         * =====================================================
+         * TRƯỜNG YÊN FOOD OS
+         * KNOWLEDGE WORKSPACE
+         *
+         * UX PRINCIPLE
+         *
+         * Không bắt người dùng phải tìm kiếm.
+         * Hiển thị lựa chọn trực tiếp để người dùng CLICK.
+         *
+         * Mục tiêu:
+         *
+         * Dashboard
+         *     ↓
+         * Knowledge
+         *     ↓
+         * Knowledge Base / AI / Constitution / ...
+         *
+         * Tối đa 3 click tới đích.
+         *
+         * =====================================================
+         */
+
+
+        /*
+         * =====================================================
+         * KNOWLEDGE DOCUMENTATION ROOT
+         *
+         * MkDocs là Single Source of Truth.
+         * App chỉ là lớp trải nghiệm.
+         * =====================================================
+         */
+
+        const KNOWLEDGE_ROOT =
+            "http://127.0.0.1:8000/systems/";
+
+
+        /*
+         * =====================================================
+         * LOAD WORKSPACE SHELL
+         * =====================================================
+         */
+
+        fetch("../layouts/workspace.html")
+
+            .then(response => {
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Không thể tải Workspace Shell."
+                    );
+
+                }
+
+                return response.text();
+
+            })
+
+
+            .then(html => {
+
+
+                /*
+                 * =================================================
+                 * PARSE WORKSPACE SHELL
+                 * =================================================
+                 */
+
+                const parser =
+                    new DOMParser();
+
+
+                const documentFragment =
+                    parser.parseFromString(
+                        html,
+                        "text/html"
+                    );
+
+
+                const shell =
+                    documentFragment.querySelector(
+                        ".workspace-shell"
+                    );
+
+
+                if (!shell) {
+
+                    throw new Error(
+                        "Không tìm thấy Workspace Shell."
+                    );
+
+                }
+
+
+                /*
+                 * =================================================
+                 * INSERT SHELL
+                 * =================================================
+                 */
+
+                const workspaceRoot =
+                    document.getElementById(
+                        "workspace-root"
+                    );
+
+
+                workspaceRoot.appendChild(
+                    shell
+                );
+
+
+                /*
+                 * =================================================
+                 * PAGE HEADER
+                 * =================================================
+                 */
+
+                const pageTitle =
+                    shell.querySelector(
+                        ".workspace-page-header h1"
+                    );
+
+
+                const pageDescription =
+                    shell.querySelector(
+                        ".workspace-page-header p"
+                    );
+
+
+                const breadcrumb =
+                    shell.querySelector(
+                        ".workspace-breadcrumb span:last-child"
+                    );
+
+
+                if (pageTitle) {
+
+                    pageTitle.textContent =
+                        "Knowledge";
+
+                }
+
+
+                if (pageDescription) {
+
+                    pageDescription.textContent =
+                        "Trung tâm tri thức của TRƯỜNG YÊN FOOD OS.";
+
+                }
+
+
+                if (breadcrumb) {
+
+                    breadcrumb.textContent =
+                        "Knowledge";
+
+                }
+
+
+                /*
+                 * =================================================
+                 * ACTIVE NAVIGATION
+                 * =================================================
+                 */
+
+                const navigation =
+                    shell.querySelectorAll(
+                        ".workspace-nav-item"
+                    );
+
+
+                navigation.forEach(item => {
+
+                    item.classList.remove(
+                        "active"
+                    );
+
+
+                    if (
+                        item.textContent
+                            .trim()
+                            .includes("Knowledge")
+                    ) {
+
+                        item.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                });
+
+
+                /*
+                 * =================================================
+                 * WORKSPACE CONTENT
+                 * =================================================
+                 */
+
+                const content =
+                    shell.querySelector(
+                        ".workspace-content"
+                    );
+
+
+                if (!content) {
+
+                    throw new Error(
+                        "Không tìm thấy vùng Workspace Content."
+                    );
+
+                }
+
+
+                /*
+                 * =================================================
+                 * KNOWLEDGE UI
+                 *
+                 * Không có ô search.
+                 *
+                 * Người dùng nhìn thấy toàn bộ hệ thống
+                 * và click trực tiếp.
+                 * =================================================
+                 */
+
+                content.innerHTML = `
+
+                    <div class="knowledge-overview">
+
+
+                        <!-- =====================================
+                             INTRO
+                             ===================================== -->
+
+                        <div class="knowledge-intro">
+
+                            <span class="workspace-eyebrow">
+                                KNOWLEDGE PLATFORM
+                            </span>
+
+
+                            <h2>
+                                Nguồn tri thức chính thức
+                            </h2>
+
+
+                            <p>
+                                Truy cập trực tiếp vào các hệ thống
+                                tri thức chính thức của TRƯỜNG YÊN FOOD.
+                            </p>
+
+                        </div>
+
+
+
+                        <!-- =====================================
+                             CORE KNOWLEDGE
+                             ===================================== -->
+
+                        <div class="knowledge-section">
+
+
+                            <div class="knowledge-section-heading">
+
+                                <div>
+
+                                    <span class="section-eyebrow">
+                                        CORE KNOWLEDGE
+                                    </span>
+
+
+                                    <h3>
+                                        Tri thức cốt lõi
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="knowledge-grid">
+
+
+                                <!-- =================================
+                                     KNOWLEDGE BASE
+                                     ================================= -->
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}knowledge-base/"
+                                    class="knowledge-card"
+                                >
+
+                                    <span class="knowledge-card-icon">
+                                        ◈
+                                    </span>
+
+
+                                    <strong>
+                                        Knowledge Base
+                                    </strong>
+
+
+                                    <span>
+                                        Kho tri thức dùng chung
+                                    </span>
+
+                                </a>
+
+
+
+                                <!-- =================================
+                                     AI KNOWLEDGE
+                                     ================================= -->
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}ai-knowledge/"
+                                    class="knowledge-card"
+                                >
+
+                                    <span class="knowledge-card-icon">
+                                        ◎
+                                    </span>
+
+
+                                    <strong>
+                                        AI Knowledge
+                                    </strong>
+
+
+                                    <span>
+                                        Tri thức dành cho hệ thống AI
+                                    </span>
+
+                                </a>
+
+
+
+                                <!-- =================================
+                                     ENTERPRISE CONSTITUTION
+                                     ================================= -->
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}enterprise-constitution/"
+                                    class="knowledge-card"
+                                >
+
+                                    <span class="knowledge-card-icon">
+                                        ◇
+                                    </span>
+
+
+                                    <strong>
+                                        Enterprise Constitution
+                                    </strong>
+
+
+                                    <span>
+                                        Hiến pháp doanh nghiệp
+                                    </span>
+
+                                </a>
+
+
+
+                                <!-- =================================
+                                     COMPANY PROFILE
+                                     ================================= -->
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}company-profile/"
+                                    class="knowledge-card"
+                                >
+
+                                    <span class="knowledge-card-icon">
+                                        □
+                                    </span>
+
+
+                                    <strong>
+                                        Company Profile
+                                    </strong>
+
+
+                                    <span>
+                                        Hồ sơ doanh nghiệp
+                                    </span>
+
+                                </a>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =====================================
+                             SYSTEM KNOWLEDGE
+                             ===================================== -->
+
+                        <div class="knowledge-section">
+
+
+                            <div class="knowledge-section-heading">
+
+                                <div>
+
+                                    <span class="section-eyebrow">
+                                        SYSTEM KNOWLEDGE
+                                    </span>
+
+
+                                    <h3>
+                                        Tri thức hệ thống
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="knowledge-list">
+
+
+                                <!-- =================================
+                                     BRAND SYSTEM
+                                     ================================= -->
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}brand-system/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        Brand System
+                                    </strong>
+
+
+                                    <span>
+                                        Nhận diện và tài sản thương hiệu
+                                    </span>
+
+                                </a>
+
+
+
+                                <!-- =================================
+                                     PRODUCT SYSTEM
+                                     ================================= -->
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}product-system/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        Product System
+                                    </strong>
+
+
+                                    <span>
+                                        Quản trị sản phẩm
+                                    </span>
+
+                                </a>
+
+
+
+                                <!-- =================================
+                                     QA GATE
+                                     ================================= -->
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}qa-gate/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        QA GATE
+                                    </strong>
+
+
+                                    <span>
+                                        Kiểm soát chất lượng
+                                    </span>
+
+                                </a>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =====================================
+                             KNOWLEDGE PRINCIPLE
+                             ===================================== -->
+
+                        <div class="knowledge-section">
+
+
+                            <div class="knowledge-section-heading">
+
+                                <div>
+
+                                    <span class="section-eyebrow">
+                                        KNOWLEDGE PRINCIPLE
+                                    </span>
+
+
+                                    <h3>
+                                        Một nguồn sự thật
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <p>
+
+                                TRƯỜNG YÊN FOOD OS không sao chép
+                                tri thức vào giao diện ứng dụng.
+                                Mọi tài liệu chính thức được quản lý
+                                tại nguồn và được giao diện điều hành
+                                truy cập trực tiếp.
+
+                            </p>
+
+
+                            <p>
+
+                                <strong>
+                                    Docs là nguồn sự thật.
+                                </strong>
+
+                                App là lớp trải nghiệm.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+                `;
+
+
+            })
+
+
+            /*
+             * =====================================================
+             * ERROR HANDLING
+             * =====================================================
+             */
+
+            .catch(error => {
+
+                console.error(
+                    "Không thể tải Workspace Shell:",
+                    error
+                );
+
+
+                document
+                    .getElementById("workspace-root")
+                    .innerHTML = `
+
+                        <div
+                            style="
+                                padding:40px;
+                                font-family:Arial,sans-serif;
+                            "
+                        >
+
+                            <h2>
+                                Không thể tải Workspace
+                            </h2>
+
+
+                            <p>
+                                Vui lòng kiểm tra Workspace Shell
+                                và máy chủ Knowledge Documentation.
+                            </p>
+
+                        </div>
+
+                    `;
+
+            });
+
+    </script>
+
+
+</body>
+
+</html>

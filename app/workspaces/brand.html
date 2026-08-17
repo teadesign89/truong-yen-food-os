@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Brand — TRƯỜNG YÊN FOOD OS</title>
+
+    <link rel="stylesheet" href="../app.css">
+    <link rel="stylesheet" href="../components/workspace.css">
+
+</head>
+
+
+<body>
+
+    <div id="workspace-root"></div>
+
+
+    <script>
+
+        /*
+         * =========================================
+         * TRƯỜNG YÊN FOOD OS
+         * BRAND WORKSPACE
+         *
+         * APP
+         *  ↓
+         * BRAND WORKSPACE
+         *  ↓
+         * MKDOCS / SINGLE SOURCE OF TRUTH
+         * =========================================
+         */
+
+
+        const KNOWLEDGE_ROOT =
+            "http://127.0.0.1:8000/systems/";
+
+
+        /*
+         * =========================================
+         * LOAD WORKSPACE SHELL
+         * =========================================
+         */
+
+        fetch("../layouts/workspace.html")
+
+            .then(response => {
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Không thể tải Workspace Shell."
+                    );
+
+                }
+
+                return response.text();
+
+            })
+
+
+            .then(html => {
+
+                const parser =
+                    new DOMParser();
+
+
+                const documentFragment =
+                    parser.parseFromString(
+                        html,
+                        "text/html"
+                    );
+
+
+                const shell =
+                    documentFragment.querySelector(
+                        ".workspace-shell"
+                    );
+
+
+                if (!shell) {
+
+                    throw new Error(
+                        "Không tìm thấy Workspace Shell."
+                    );
+
+                }
+
+
+                /*
+                 * INSERT SHELL
+                 */
+
+                document
+                    .getElementById("workspace-root")
+                    .appendChild(shell);
+
+
+                /*
+                 * =================================
+                 * PAGE HEADER
+                 * =================================
+                 */
+
+                const pageTitle =
+                    shell.querySelector(
+                        ".workspace-page-header h1"
+                    );
+
+
+                const pageDescription =
+                    shell.querySelector(
+                        ".workspace-page-header p"
+                    );
+
+
+                const breadcrumb =
+                    shell.querySelector(
+                        ".workspace-breadcrumb span:last-child"
+                    );
+
+
+                if (pageTitle) {
+
+                    pageTitle.textContent =
+                        "Brand";
+
+                }
+
+
+                if (pageDescription) {
+
+                    pageDescription.textContent =
+                        "Trung tâm quản trị thương hiệu của TRƯỜNG YÊN FOOD OS.";
+
+                }
+
+
+                if (breadcrumb) {
+
+                    breadcrumb.textContent =
+                        "Brand";
+
+                }
+
+
+                /*
+                 * =================================
+                 * ACTIVE NAVIGATION
+                 * =================================
+                 */
+
+                const navigation =
+                    shell.querySelectorAll(
+                        ".workspace-nav-item"
+                    );
+
+
+                navigation.forEach(item => {
+
+                    item.classList.remove(
+                        "active"
+                    );
+
+
+                    if (
+                        item.textContent
+                            .trim()
+                            .includes("Brand")
+                    ) {
+
+                        item.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                });
+
+
+                /*
+                 * =================================
+                 * WORKSPACE CONTENT
+                 * =================================
+                 */
+
+                const content =
+                    shell.querySelector(
+                        ".workspace-content"
+                    );
+
+
+                if (!content) {
+
+                    throw new Error(
+                        "Không tìm thấy vùng Workspace Content."
+                    );
+
+                }
+
+
+                content.innerHTML = `
+
+                    <div class="knowledge-overview">
+
+
+                        <!-- =================================
+                             INTRO
+                             ================================= -->
+
+                        <div class="knowledge-intro">
+
+                            <span class="workspace-eyebrow">
+                                BRAND PLATFORM
+                            </span>
+
+
+                            <h2>
+                                Nguồn thương hiệu chính thức
+                            </h2>
+
+
+                            <p>
+                                Truy cập trực tiếp vào hệ thống
+                                thương hiệu được quản lý như
+                                Single Source of Truth của
+                                TRƯỜNG YÊN FOOD.
+                            </p>
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             CORE BRAND
+                             ================================= -->
+
+                        <div class="knowledge-section">
+
+                            <div class="knowledge-section-heading">
+
+                                <div>
+
+                                    <span class="section-eyebrow">
+                                        CORE BRAND
+                                    </span>
+
+
+                                    <h3>
+                                        Hệ thống thương hiệu
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="knowledge-grid">
+
+
+                                <!-- BRAND SYSTEM -->
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}brand-system/"
+                                    class="knowledge-card"
+                                >
+
+                                    <span class="knowledge-card-icon">
+                                        ◇
+                                    </span>
+
+
+                                    <strong>
+                                        Brand System
+                                    </strong>
+
+
+                                    <span>
+                                        Nền tảng và định hướng thương hiệu
+                                    </span>
+
+                                </a>
+
+
+
+                                <!-- ENTERPRISE CONSTITUTION -->
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}enterprise-constitution/"
+                                    class="knowledge-card"
+                                >
+
+                                    <span class="knowledge-card-icon">
+                                        ◈
+                                    </span>
+
+
+                                    <strong>
+                                        Enterprise Constitution
+                                    </strong>
+
+
+                                    <span>
+                                        Nền tảng định hướng doanh nghiệp
+                                    </span>
+
+                                </a>
+
+
+
+                                <!-- COMPANY PROFILE -->
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}company-profile/"
+                                    class="knowledge-card"
+                                >
+
+                                    <span class="knowledge-card-icon">
+                                        □
+                                    </span>
+
+
+                                    <strong>
+                                        Company Profile
+                                    </strong>
+
+
+                                    <span>
+                                        Thông tin nhận diện doanh nghiệp
+                                    </span>
+
+                                </a>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             BRAND MANAGEMENT
+                             ================================= -->
+
+                        <div class="knowledge-section">
+
+                            <div class="knowledge-section-heading">
+
+                                <div>
+
+                                    <span class="section-eyebrow">
+                                        BRAND MANAGEMENT
+                                    </span>
+
+
+                                    <h3>
+                                        Quản trị thương hiệu
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="knowledge-list">
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}brand-system/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        Brand System
+                                    </strong>
+
+
+                                    <span>
+                                        Định vị, lời hứa và tính cách thương hiệu
+                                    </span>
+
+                                </a>
+
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}company-profile/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        Company Profile
+                                    </strong>
+
+
+                                    <span>
+                                        Thông tin doanh nghiệp và nhận diện chính thức
+                                    </span>
+
+                                </a>
+
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}enterprise-constitution/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        Enterprise Constitution
+                                    </strong>
+
+
+                                    <span>
+                                        Nguyên tắc nền tảng chi phối thương hiệu
+                                    </span>
+
+                                </a>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             BRAND PRINCIPLE
+                             ================================= -->
+
+                        <div class="knowledge-section">
+
+                            <div class="knowledge-section-heading">
+
+                                <div>
+
+                                    <span class="section-eyebrow">
+                                        BRAND PRINCIPLE
+                                    </span>
+
+
+                                    <h3>
+                                        Một thương hiệu, một nguồn sự thật
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <p>
+                                TRƯỜNG YÊN FOOD OS không sao chép
+                                các quy chuẩn thương hiệu vào
+                                giao diện ứng dụng.
+                            </p>
+
+
+                            <p>
+                                Brand Workspace chỉ đóng vai trò
+                                điều hướng và trải nghiệm.
+                                Nội dung thương hiệu chính thức
+                                được quản lý tại MkDocs.
+                            </p>
+
+
+                            <p>
+
+                                <strong>
+                                    Docs là nguồn sự thật.
+                                </strong>
+
+                                App là lớp trải nghiệm.
+
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                `;
+
+            })
+
+
+            /*
+             * =========================================
+             * ERROR HANDLING
+             * =========================================
+             */
+
+            .catch(error => {
+
+                console.error(
+                    "Không thể tải Brand Workspace:",
+                    error
+                );
+
+
+                document
+                    .getElementById("workspace-root")
+                    .innerHTML = `
+
+                        <div
+                            style="
+                                padding:40px;
+                                font-family:Arial,sans-serif;
+                            "
+                        >
+
+                            <h2>
+                                Không thể tải Brand Workspace
+                            </h2>
+
+
+                            <p>
+                                Vui lòng kiểm tra Workspace Shell
+                                và máy chủ Knowledge Documentation.
+                            </p>
+
+                        </div>
+
+                    `;
+
+            });
+
+    </script>
+
+
+</body>
+
+</html>

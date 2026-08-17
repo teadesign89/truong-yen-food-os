@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Products — TRƯỜNG YÊN FOOD OS</title>
+
+    <link rel="stylesheet" href="../app.css">
+    <link rel="stylesheet" href="../components/workspace.css">
+
+</head>
+
+
+<body>
+
+    <div id="workspace-root"></div>
+
+
+    <script>
+
+        /*
+         * =========================================
+         * TRƯỜNG YÊN FOOD OS
+         * PRODUCTS WORKSPACE
+         *
+         * APP
+         *  ↓
+         * PRODUCTS WORKSPACE
+         *  ↓
+         * MKDOCS / SINGLE SOURCE OF TRUTH
+         * =========================================
+         */
+
+
+        const KNOWLEDGE_ROOT =
+            "http://127.0.0.1:8000/systems/";
+
+
+        /*
+         * =========================================
+         * LOAD WORKSPACE SHELL
+         * =========================================
+         */
+
+        fetch("../layouts/workspace.html")
+
+            .then(response => {
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Không thể tải Workspace Shell."
+                    );
+
+                }
+
+                return response.text();
+
+            })
+
+
+            .then(html => {
+
+                const parser =
+                    new DOMParser();
+
+
+                const documentFragment =
+                    parser.parseFromString(
+                        html,
+                        "text/html"
+                    );
+
+
+                const shell =
+                    documentFragment.querySelector(
+                        ".workspace-shell"
+                    );
+
+
+                if (!shell) {
+
+                    throw new Error(
+                        "Không tìm thấy Workspace Shell."
+                    );
+
+                }
+
+
+                /*
+                 * INSERT SHELL
+                 */
+
+                document
+                    .getElementById("workspace-root")
+                    .appendChild(shell);
+
+
+                /*
+                 * =================================
+                 * PAGE HEADER
+                 * =================================
+                 */
+
+                const pageTitle =
+                    shell.querySelector(
+                        ".workspace-page-header h1"
+                    );
+
+
+                const pageDescription =
+                    shell.querySelector(
+                        ".workspace-page-header p"
+                    );
+
+
+                const breadcrumb =
+                    shell.querySelector(
+                        ".workspace-breadcrumb span:last-child"
+                    );
+
+
+                if (pageTitle) {
+
+                    pageTitle.textContent =
+                        "Products";
+
+                }
+
+
+                if (pageDescription) {
+
+                    pageDescription.textContent =
+                        "Trung tâm quản trị sản phẩm của TRƯỜNG YÊN FOOD OS.";
+
+                }
+
+
+                if (breadcrumb) {
+
+                    breadcrumb.textContent =
+                        "Products";
+
+                }
+
+
+                /*
+                 * =================================
+                 * ACTIVE NAVIGATION
+                 * =================================
+                 */
+
+                const navigation =
+                    shell.querySelectorAll(
+                        ".workspace-nav-item"
+                    );
+
+
+                navigation.forEach(item => {
+
+                    item.classList.remove(
+                        "active"
+                    );
+
+
+                    if (
+                        item.textContent
+                            .trim()
+                            .includes("Products")
+                    ) {
+
+                        item.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                });
+
+
+                /*
+                 * =================================
+                 * WORKSPACE CONTENT
+                 * =================================
+                 */
+
+                const content =
+                    shell.querySelector(
+                        ".workspace-content"
+                    );
+
+
+                if (!content) {
+
+                    throw new Error(
+                        "Không tìm thấy vùng Workspace Content."
+                    );
+
+                }
+
+
+                content.innerHTML = `
+
+                    <div class="knowledge-overview">
+
+
+                        <!-- =================================
+                             INTRO
+                             ================================= -->
+
+                        <div class="knowledge-intro">
+
+                            <span class="workspace-eyebrow">
+                                PRODUCT PLATFORM
+                            </span>
+
+
+                            <h2>
+                                Nguồn thông tin sản phẩm chính thức
+                            </h2>
+
+
+                            <p>
+                                Truy cập trực tiếp vào hệ thống
+                                quản trị sản phẩm được kiểm soát
+                                như Single Source of Truth của
+                                TRƯỜNG YÊN FOOD.
+                            </p>
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             CORE PRODUCT
+                             ================================= -->
+
+                        <div class="knowledge-section">
+
+                            <div class="knowledge-section-heading">
+
+                                <div>
+
+                                    <span class="section-eyebrow">
+                                        CORE PRODUCT
+                                    </span>
+
+
+                                    <h3>
+                                        Hệ thống sản phẩm
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="knowledge-grid">
+
+
+                                <!-- PRODUCT SYSTEM -->
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}product-system/"
+                                    class="knowledge-card"
+                                >
+
+                                    <span class="knowledge-card-icon">
+                                        □
+                                    </span>
+
+
+                                    <strong>
+                                        Product System
+                                    </strong>
+
+
+                                    <span>
+                                        Quản trị toàn bộ vòng đời sản phẩm
+                                    </span>
+
+                                </a>
+
+
+
+                                <!-- BRAND SYSTEM -->
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}brand-system/"
+                                    class="knowledge-card"
+                                >
+
+                                    <span class="knowledge-card-icon">
+                                        ◇
+                                    </span>
+
+
+                                    <strong>
+                                        Brand System
+                                    </strong>
+
+
+                                    <span>
+                                        Định hướng thương hiệu cho sản phẩm
+                                    </span>
+
+                                </a>
+
+
+
+                                <!-- QA GATE -->
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}qa-gate/"
+                                    class="knowledge-card"
+                                >
+
+                                    <span class="knowledge-card-icon">
+                                        ✓
+                                    </span>
+
+
+                                    <strong>
+                                        QA GATE
+                                    </strong>
+
+
+                                    <span>
+                                        Kiểm soát chất lượng trước phát hành
+                                    </span>
+
+                                </a>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             PRODUCT MANAGEMENT
+                             ================================= -->
+
+                        <div class="knowledge-section">
+
+                            <div class="knowledge-section-heading">
+
+                                <div>
+
+                                    <span class="section-eyebrow">
+                                        PRODUCT MANAGEMENT
+                                    </span>
+
+
+                                    <h3>
+                                        Quản trị sản phẩm
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="knowledge-list">
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}product-system/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        Product System
+                                    </strong>
+
+
+                                    <span>
+                                        Danh mục, hồ sơ và vòng đời sản phẩm
+                                    </span>
+
+                                </a>
+
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}qa-gate/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        QA GATE
+                                    </strong>
+
+
+                                    <span>
+                                        Điểm kiểm soát chất lượng và điều kiện phát hành
+                                    </span>
+
+                                </a>
+
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}brand-system/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        Brand System
+                                    </strong>
+
+
+                                    <span>
+                                        Bảo đảm sản phẩm nhất quán với thương hiệu
+                                    </span>
+
+                                </a>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             PRODUCT FLOW
+                             ================================= -->
+
+                        <div class="knowledge-section">
+
+                            <div class="knowledge-section-heading">
+
+                                <div>
+
+                                    <span class="section-eyebrow">
+                                        PRODUCT FLOW
+                                    </span>
+
+
+                                    <h3>
+                                        Hành trình sản phẩm
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <p>
+                                Mỗi sản phẩm được quản trị theo
+                                vòng đời rõ ràng từ ý tưởng,
+                                yêu cầu, phát triển, phê duyệt,
+                                phát hành đến thay đổi hoặc
+                                ngừng kinh doanh.
+                            </p>
+
+
+                            <div class="knowledge-list">
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}product-system/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        01 — Ý tưởng & yêu cầu
+                                    </strong>
+
+
+                                    <span>
+                                        Xác lập nhu cầu và định hướng sản phẩm
+                                    </span>
+
+                                </a>
+
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}product-system/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        02 — Phát triển & phê duyệt
+                                    </strong>
+
+
+                                    <span>
+                                        Kiểm soát hồ sơ và điều kiện chuyển bước
+                                    </span>
+
+                                </a>
+
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}qa-gate/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        03 — QA & phát hành
+                                    </strong>
+
+
+                                    <span>
+                                        Chỉ phát hành khi hoàn tất các kiểm soát bắt buộc
+                                    </span>
+
+                                </a>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             PRODUCT PRINCIPLE
+                             ================================= -->
+
+                        <div class="knowledge-section">
+
+                            <div class="knowledge-section-heading">
+
+                                <div>
+
+                                    <span class="section-eyebrow">
+                                        PRODUCT PRINCIPLE
+                                    </span>
+
+
+                                    <h3>
+                                        Một nguồn thông tin sản phẩm
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <p>
+                                TRƯỜNG YÊN FOOD OS không sao chép
+                                thông tin sản phẩm vào giao diện
+                                ứng dụng.
+                            </p>
+
+
+                            <p>
+                                Product Workspace chỉ giúp người
+                                dùng lựa chọn và đi thẳng tới
+                                đúng hệ thống tài liệu chính thức.
+                            </p>
+
+
+                            <p>
+
+                                <strong>
+                                    Docs là nguồn sự thật.
+                                </strong>
+
+                                App là lớp trải nghiệm.
+
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                `;
+
+            })
+
+
+            /*
+             * =========================================
+             * ERROR HANDLING
+             * =========================================
+             */
+
+            .catch(error => {
+
+                console.error(
+                    "Không thể tải Products Workspace:",
+                    error
+                );
+
+
+                document
+                    .getElementById("workspace-root")
+                    .innerHTML = `
+
+                        <div
+                            style="
+                                padding:40px;
+                                font-family:Arial,sans-serif;
+                            "
+                        >
+
+                            <h2>
+                                Không thể tải Products Workspace
+                            </h2>
+
+
+                            <p>
+                                Vui lòng kiểm tra Workspace Shell
+                                và máy chủ Knowledge Documentation.
+                            </p>
+
+                        </div>
+
+                    `;
+
+            });
+
+    </script>
+
+
+</body>
+
+</html>

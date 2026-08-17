@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>QA GATE — TRƯỜNG YÊN FOOD OS</title>
+
+    <link rel="stylesheet" href="../app.css">
+    <link rel="stylesheet" href="../components/workspace.css">
+
+</head>
+
+
+<body>
+
+    <div id="workspace-root"></div>
+
+
+    <script>
+
+        /*
+         * =========================================
+         * TRƯỜNG YÊN FOOD OS
+         * QA GATE WORKSPACE
+         *
+         * APP
+         *  ↓
+         * QA GATE WORKSPACE
+         *  ↓
+         * MKDOCS / SINGLE SOURCE OF TRUTH
+         * =========================================
+         */
+
+
+        const KNOWLEDGE_ROOT =
+            "http://127.0.0.1:8000/systems/";
+
+
+        /*
+         * =========================================
+         * LOAD WORKSPACE SHELL
+         * =========================================
+         */
+
+        fetch("../layouts/workspace.html")
+
+            .then(response => {
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Không thể tải Workspace Shell."
+                    );
+
+                }
+
+                return response.text();
+
+            })
+
+
+            .then(html => {
+
+                const parser =
+                    new DOMParser();
+
+
+                const documentFragment =
+                    parser.parseFromString(
+                        html,
+                        "text/html"
+                    );
+
+
+                const shell =
+                    documentFragment.querySelector(
+                        ".workspace-shell"
+                    );
+
+
+                if (!shell) {
+
+                    throw new Error(
+                        "Không tìm thấy Workspace Shell."
+                    );
+
+                }
+
+
+                /*
+                 * INSERT SHELL
+                 */
+
+                document
+                    .getElementById("workspace-root")
+                    .appendChild(shell);
+
+
+                /*
+                 * =================================
+                 * PAGE HEADER
+                 * =================================
+                 */
+
+                const pageTitle =
+                    shell.querySelector(
+                        ".workspace-page-header h1"
+                    );
+
+
+                const pageDescription =
+                    shell.querySelector(
+                        ".workspace-page-header p"
+                    );
+
+
+                const breadcrumb =
+                    shell.querySelector(
+                        ".workspace-breadcrumb span:last-child"
+                    );
+
+
+                if (pageTitle) {
+
+                    pageTitle.textContent =
+                        "QA GATE";
+
+                }
+
+
+                if (pageDescription) {
+
+                    pageDescription.textContent =
+                        "Trung tâm kiểm soát chất lượng của TRƯỜNG YÊN FOOD OS.";
+
+                }
+
+
+                if (breadcrumb) {
+
+                    breadcrumb.textContent =
+                        "QA GATE";
+
+                }
+
+
+                /*
+                 * =================================
+                 * ACTIVE NAVIGATION
+                 * =================================
+                 */
+
+                const navigation =
+                    shell.querySelectorAll(
+                        ".workspace-nav-item"
+                    );
+
+
+                navigation.forEach(item => {
+
+                    item.classList.remove(
+                        "active"
+                    );
+
+
+                    if (
+                        item.textContent
+                            .trim()
+                            .includes("QA GATE")
+                    ) {
+
+                        item.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                });
+
+
+                /*
+                 * =================================
+                 * WORKSPACE CONTENT
+                 * =================================
+                 */
+
+                const content =
+                    shell.querySelector(
+                        ".workspace-content"
+                    );
+
+
+                if (!content) {
+
+                    throw new Error(
+                        "Không tìm thấy vùng Workspace Content."
+                    );
+
+                }
+
+
+                content.innerHTML = `
+
+                    <div class="knowledge-overview">
+
+
+                        <!-- =================================
+                             INTRO
+                             ================================= -->
+
+                        <div class="knowledge-intro">
+
+                            <span class="workspace-eyebrow">
+                                QUALITY PLATFORM
+                            </span>
+
+
+                            <h2>
+                                Cổng kiểm soát chất lượng
+                            </h2>
+
+
+                            <p>
+                                Truy cập trực tiếp vào hệ thống
+                                kiểm soát chất lượng và các điểm
+                                phê duyệt bắt buộc của
+                                TRƯỜNG YÊN FOOD.
+                            </p>
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             CORE QA
+                             ================================= -->
+
+                        <div class="knowledge-section">
+
+                            <div class="knowledge-section-heading">
+
+                                <div>
+
+                                    <span class="section-eyebrow">
+                                        CORE QA
+                                    </span>
+
+
+                                    <h3>
+                                        Kiểm soát chất lượng
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="knowledge-grid">
+
+
+                                <!-- QA GATE -->
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}qa-gate/"
+                                    class="knowledge-card"
+                                >
+
+                                    <span class="knowledge-card-icon">
+                                        ✓
+                                    </span>
+
+
+                                    <strong>
+                                        QA GATE
+                                    </strong>
+
+
+                                    <span>
+                                        Hệ thống kiểm soát chất lượng chính thức
+                                    </span>
+
+                                </a>
+
+
+
+                                <!-- PRODUCT SYSTEM -->
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}product-system/"
+                                    class="knowledge-card"
+                                >
+
+                                    <span class="knowledge-card-icon">
+                                        □
+                                    </span>
+
+
+                                    <strong>
+                                        Product System
+                                    </strong>
+
+
+                                    <span>
+                                        Hồ sơ và vòng đời sản phẩm
+                                    </span>
+
+                                </a>
+
+
+
+                                <!-- BRAND SYSTEM -->
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}brand-system/"
+                                    class="knowledge-card"
+                                >
+
+                                    <span class="knowledge-card-icon">
+                                        ◇
+                                    </span>
+
+
+                                    <strong>
+                                        Brand System
+                                    </strong>
+
+
+                                    <span>
+                                        Kiểm soát tính nhất quán thương hiệu
+                                    </span>
+
+                                </a>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             QUALITY CONTROL
+                             ================================= -->
+
+                        <div class="knowledge-section">
+
+                            <div class="knowledge-section-heading">
+
+                                <div>
+
+                                    <span class="section-eyebrow">
+                                        QUALITY CONTROL
+                                    </span>
+
+
+                                    <h3>
+                                        Các nguyên tắc kiểm soát
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="knowledge-list">
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}qa-gate/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        Bằng chứng trước đánh giá
+                                    </strong>
+
+
+                                    <span>
+                                        Chất lượng được kiểm soát bằng bằng chứng,
+                                        không chỉ bằng đánh giá cảm tính.
+                                    </span>
+
+                                </a>
+
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}qa-gate/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        Phê duyệt trước phát hành
+                                    </strong>
+
+
+                                    <span>
+                                        Không phát hành khi chưa hoàn tất
+                                        các kiểm tra và phê duyệt bắt buộc.
+                                    </span>
+
+                                </a>
+
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}qa-gate/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        Kiểm soát sai lệch
+                                    </strong>
+
+
+                                    <span>
+                                        Mọi sai lệch phải được ghi nhận,
+                                        đánh giá và xử lý có kiểm soát.
+                                    </span>
+
+                                </a>
+
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}qa-gate/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        Truy xuất hồ sơ
+                                    </strong>
+
+
+                                    <span>
+                                        Hồ sơ chất lượng phải có khả năng
+                                        truy xuất theo lô và thời điểm.
+                                    </span>
+
+                                </a>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             QA GATES
+                             ================================= -->
+
+                        <div class="knowledge-section">
+
+                            <div class="knowledge-section-heading">
+
+                                <div>
+
+                                    <span class="section-eyebrow">
+                                        QA GATES
+                                    </span>
+
+
+                                    <h3>
+                                        Bản đồ cổng kiểm soát
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="knowledge-list">
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}qa-gate/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        G0 — Nhà cung cấp & đầu vào
+                                    </strong>
+
+
+                                    <span>
+                                        Kiểm tra điều kiện nhà cung cấp
+                                        và nguyên liệu đầu vào.
+                                    </span>
+
+                                </a>
+
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}qa-gate/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        G1 — Tiếp nhận nguyên liệu / bao bì
+                                    </strong>
+
+
+                                    <span>
+                                        Xác nhận lô được tiếp nhận
+                                        theo quy định.
+                                    </span>
+
+                                </a>
+
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}qa-gate/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        G2 — Kiểm soát sản xuất
+                                    </strong>
+
+
+                                    <span>
+                                        Kiểm soát quá trình và các tiêu chí
+                                        chất lượng trong sản xuất.
+                                    </span>
+
+                                </a>
+
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}qa-gate/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        G3 — Thành phẩm
+                                    </strong>
+
+
+                                    <span>
+                                        Đánh giá sản phẩm trước khi
+                                        chuyển sang bước phát hành.
+                                    </span>
+
+                                </a>
+
+
+
+                                <a
+                                    href="${KNOWLEDGE_ROOT}qa-gate/"
+                                    class="knowledge-list-item"
+                                >
+
+                                    <strong>
+                                        G4 — Phát hành
+                                    </strong>
+
+
+                                    <span>
+                                        Chỉ phát hành khi tất cả điều kiện
+                                        bắt buộc đã đạt.
+                                    </span>
+
+                                </a>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             QA PRINCIPLE
+                             ================================= -->
+
+                        <div class="knowledge-section">
+
+                            <div class="knowledge-section-heading">
+
+                                <div>
+
+                                    <span class="section-eyebrow">
+                                        QA PRINCIPLE
+                                    </span>
+
+
+                                    <h3>
+                                        Không đạt thì không chuyển bước
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <p>
+                                QA GATE là điểm kiểm soát bắt buộc
+                                trong chuỗi vận hành của
+                                TRƯỜNG YÊN FOOD.
+                            </p>
+
+
+                            <p>
+                                Mỗi cổng chỉ được chuyển sang bước
+                                tiếp theo khi các điều kiện đã được
+                                kiểm tra và có bằng chứng phù hợp.
+                            </p>
+
+
+                            <p>
+
+                                <strong>
+                                    Docs là nguồn sự thật.
+                                </strong>
+
+                                App là lớp trải nghiệm.
+
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                `;
+
+            })
+
+
+            /*
+             * =========================================
+             * ERROR HANDLING
+             * =========================================
+             */
+
+            .catch(error => {
+
+                console.error(
+                    "Không thể tải QA GATE Workspace:",
+                    error
+                );
+
+
+                document
+                    .getElementById("workspace-root")
+                    .innerHTML = `
+
+                        <div
+                            style="
+                                padding:40px;
+                                font-family:Arial,sans-serif;
+                            "
+                        >
+
+                            <h2>
+                                Không thể tải QA GATE Workspace
+                            </h2>
+
+
+                            <p>
+                                Vui lòng kiểm tra Workspace Shell
+                                và máy chủ Knowledge Documentation.
+                            </p>
+
+                        </div>
+
+                    `;
+
+            });
+
+    </script>
+
+
+</body>
+
+</html>
