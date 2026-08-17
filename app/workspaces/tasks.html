@@ -1,0 +1,2600 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Tasks — TRƯỜNG YÊN FOOD OS</title>
+
+    <link rel="stylesheet" href="../app.css">
+    <link rel="stylesheet" href="../components/workspace.css">
+
+</head>
+
+
+<body>
+
+<div class="workspace-shell">
+
+
+    <!-- HEADER -->
+
+    <header class="workspace-header">
+
+        <a
+            href="../index.html"
+            class="workspace-brand"
+        >
+
+            <span class="workspace-brand-mark">
+                TY
+            </span>
+
+            <span class="workspace-brand-name">
+                TRƯỜNG YÊN FOOD
+            </span>
+
+            <span class="workspace-brand-os">
+                OS
+            </span>
+
+        </a>
+
+
+        <div class="workspace-header-actions">
+
+            <button
+                class="workspace-search"
+                type="button"
+            >
+                🔍
+                <span>Tìm kiếm...</span>
+            </button>
+
+
+            <button
+                class="workspace-notification"
+                type="button"
+                aria-label="Thông báo"
+            >
+                🔔
+            </button>
+
+
+            <div class="workspace-user">
+
+                <span class="workspace-avatar">
+                    T
+                </span>
+
+                <span>
+                    Tuấn
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- BODY -->
+
+    <div class="workspace-body">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="workspace-sidebar">
+
+            <div class="workspace-sidebar-title">
+                HỆ THỐNG
+            </div>
+
+
+            <a
+                href="../index.html"
+                class="workspace-nav-item"
+            >
+                <span>⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="knowledge.html"
+                class="workspace-nav-item"
+            >
+                <span>◈</span>
+                <span>Knowledge</span>
+            </a>
+
+
+            <a
+                href="company.html"
+                class="workspace-nav-item"
+            >
+                <span>▣</span>
+                <span>Company</span>
+            </a>
+
+
+            <a
+                href="brand.html"
+                class="workspace-nav-item"
+            >
+                <span>◇</span>
+                <span>Brand</span>
+            </a>
+
+
+            <a
+                href="products.html"
+                class="workspace-nav-item"
+            >
+                <span>□</span>
+                <span>Products</span>
+            </a>
+
+
+            <a
+                href="qa.html"
+                class="workspace-nav-item"
+            >
+                <span>✓</span>
+                <span>QA GATE</span>
+            </a>
+
+
+            <a
+                href="tasks.html"
+                class="workspace-nav-item active"
+            >
+                <span>≡</span>
+                <span>Tasks</span>
+            </a>
+
+        </aside>
+
+
+
+        <!-- MAIN -->
+
+        <main class="workspace-main">
+
+            <div class="workspace-container">
+
+
+                <div class="workspace-breadcrumb">
+
+                    <a href="../index.html">
+                        Dashboard
+                    </a>
+
+                    <span>/</span>
+
+                    <span>
+                        Tasks
+                    </span>
+
+                </div>
+
+
+
+                <header class="workspace-page-header">
+
+                    <div>
+
+                        <span class="workspace-eyebrow">
+                            TRƯỜNG YÊN FOOD OS
+                        </span>
+
+                        <h1>
+                            Tasks
+                        </h1>
+
+                        <p>
+                            Trung tâm điều hành các tác vụ của hệ thống.
+                        </p>
+
+                    </div>
+
+
+                    <div class="workspace-actions">
+
+                        <button
+                            class="workspace-action secondary"
+                            type="button"
+                            onclick="history.back()"
+                        >
+                            Quay lại
+                        </button>
+
+
+                        <button
+                            class="workspace-action primary"
+                            type="button"
+                            data-new-task
+                        >
+                            Tác vụ mới
+                        </button>
+
+                    </div>
+
+                </header>
+
+
+
+                <!-- TASK BOARD -->
+
+                <section class="task-board">
+
+                    <div class="task-board-header">
+
+                        <div>
+
+                            <span class="task-board-eyebrow">
+                                TASK BOARD
+                            </span>
+
+                            <h2>
+                                Công việc đang vận hành
+                            </h2>
+
+                        </div>
+
+
+                        <span
+                            class="task-count"
+                            id="task-count"
+                        >
+                            0 tác vụ
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="task-columns">
+
+
+                        <!-- DRAFT -->
+
+                        <section class="task-column">
+
+                            <header class="task-column-header">
+
+                                <strong>
+                                    DRAFT
+                                </strong>
+
+                                <span id="count-draft">
+                                    0
+                                </span>
+
+                            </header>
+
+
+                            <div
+                                class="task-column-body"
+                                id="tasks-draft"
+                            ></div>
+
+                        </section>
+
+
+
+                        <!-- IN PROGRESS -->
+
+                        <section class="task-column">
+
+                            <header class="task-column-header">
+
+                                <strong>
+                                    IN PROGRESS
+                                </strong>
+
+                                <span id="count-progress">
+                                    0
+                                </span>
+
+                            </header>
+
+
+                            <div
+                                class="task-column-body"
+                                id="tasks-progress"
+                            ></div>
+
+                        </section>
+
+
+
+                        <!-- REVIEW -->
+
+                        <section class="task-column">
+
+                            <header class="task-column-header">
+
+                                <strong>
+                                    QA / REVIEW
+                                </strong>
+
+                                <span id="count-review">
+                                    0
+                                </span>
+
+                            </header>
+
+
+                            <div
+                                class="task-column-body"
+                                id="tasks-review"
+                            ></div>
+
+                        </section>
+
+
+
+                        <!-- DONE -->
+
+                        <section class="task-column">
+
+                            <header class="task-column-header">
+
+                                <strong>
+                                    DONE
+                                </strong>
+
+                                <span id="count-done">
+                                    0
+                                </span>
+
+                            </header>
+
+
+                            <div
+                                class="task-column-body"
+                                id="tasks-done"
+                            ></div>
+
+                        </section>
+
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </main>
+
+    </div>
+
+</div>
+
+
+
+<style>
+
+.task-board {
+
+    padding: 28px;
+
+    background: var(--surface);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 14px;
+
+}
+
+
+.task-board-header {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+
+}
+
+
+.task-board-eyebrow {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+
+    color: var(--brand);
+
+}
+
+
+.task-board-header h2 {
+
+    margin: 0;
+
+    font-size: 22px;
+
+    font-weight: 600;
+
+}
+
+
+.task-count {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+.task-columns {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 12px;
+
+}
+
+
+.task-column {
+
+    min-height: 360px;
+
+    background: #f8f7f4;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+}
+
+
+.task-column-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 14px 16px;
+
+    background: white;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+}
+
+
+.task-column-header strong {
+
+    font-size: 11px;
+
+    letter-spacing: .8px;
+
+}
+
+
+.task-column-header span {
+
+    min-width: 22px;
+
+    height: 22px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: #f1ebe5;
+
+    color: var(--brand);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+}
+
+
+.task-column-body {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    padding: 12px;
+
+}
+
+
+.task-card {
+
+    padding: 14px;
+
+    background: white;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 9px;
+
+}
+
+
+.task-card strong {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 13px;
+
+}
+
+
+.task-card span {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.45;
+
+}
+
+
+.task-card-id {
+
+    color: var(--brand) !important;
+
+    font-size: 9px !important;
+
+    font-weight: 700;
+
+    letter-spacing: .7px;
+
+}
+
+
+.task-empty {
+
+    padding: 30px 10px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+}
+
+
+@media (max-width: 1000px) {
+
+    .task-columns {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .task-board {
+
+        padding: 18px;
+
+    }
+
+    .task-columns {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+</style>
+
+
+
+<script src="../app.js"></script>
+
+<script src="../task.js"></script>
+
+
+<script>
+
+(function () {
+
+    "use strict";
+
+
+    function loadTasks() {
+
+        let tasks = [];
+
+
+        try {
+
+            tasks =
+                JSON.parse(
+                    localStorage.getItem(
+                        "ty-tasks"
+                    ) || "[]"
+                );
+
+        }
+        catch (error) {
+
+            tasks = [];
+
+        }
+
+
+        const groups = {
+
+            DRAFT:
+                document.getElementById(
+                    "tasks-draft"
+                ),
+
+            "IN PROGRESS":
+                document.getElementById(
+                    "tasks-progress"
+                ),
+
+            "QA / REVIEW":
+                document.getElementById(
+                    "tasks-review"
+                ),
+
+            DONE:
+                document.getElementById(
+                    "tasks-done"
+                )
+
+        };
+
+
+        const counts = {
+
+            DRAFT:
+                document.getElementById(
+                    "count-draft"
+                ),
+
+            "IN PROGRESS":
+                document.getElementById(
+                    "count-progress"
+                ),
+
+            "QA / REVIEW":
+                document.getElementById(
+                    "count-review"
+                ),
+
+            DONE:
+                document.getElementById(
+                    "count-done"
+                )
+
+        };
+
+
+        Object.values(groups)
+            .forEach(function (container) {
+
+                container.innerHTML = "";
+
+            });
+
+
+        Object.keys(groups)
+            .forEach(function (status) {
+
+                const filtered =
+                    tasks.filter(
+                        function (task) {
+
+                            return task.status === status;
+
+                        }
+                    );
+
+
+                counts[status].textContent =
+                    filtered.length;
+
+
+                if (!filtered.length) {
+
+                    groups[status].innerHTML = `
+
+                        <div class="task-empty">
+                            Chưa có tác vụ
+                        </div>
+
+                    `;
+
+                    return;
+
+                }
+
+
+                groups[status].innerHTML =
+                    filtered
+                        .map(function (task) {
+
+                            return `
+
+                                <article class="task-card">
+
+                                    <span class="task-card-id">
+                                        ${task.id}
+                                    </span>
+
+                                    <strong>
+                                        ${task.typeTitle}
+                                    </strong>
+
+                                    <span>
+                                        Hệ thống:
+                                        ${task.workspaceTitle}
+                                    </span>
+
+                                    <span>
+                                        Trạng thái:
+                                        ${task.status}
+                                    </span>
+
+                                </article>
+
+                            `;
+
+                        })
+                        .join("");
+
+            });
+
+
+        document.getElementById(
+            "task-count"
+        ).textContent =
+            tasks.length +
+            (
+                tasks.length === 1
+                    ? " tác vụ"
+                    : " tác vụ"
+            );
+
+    }
+
+
+    loadTasks();
+
+
+    window.addEventListener(
+        "storage",
+        loadTasks
+    );
+
+
+    window.addEventListener(
+        "ty-task-created",
+        loadTasks
+    );
+
+
+})();
+
+</script>
+
+
+
+<!-- =====================================================
+     TY_TASK_AUTO_HIGHLIGHT_V1
+     Highlight task vừa tạo
+     ===================================================== -->
+
+<style id="ty-task-highlight-style">
+
+    .ty-task-new-highlight {
+
+        position: relative;
+
+        border-color: #795548 !important;
+
+        box-shadow:
+            0 0 0 2px rgba(121, 85, 72, 0.14),
+            0 12px 28px rgba(0, 0, 0, 0.08) !important;
+
+        transition:
+            border-color .2s ease,
+            box-shadow .2s ease;
+
+    }
+
+
+    .ty-task-new-highlight::before {
+
+        content: "VỪA TẠO";
+
+        position: absolute;
+
+        top: 8px;
+        right: 8px;
+
+        padding: 4px 7px;
+
+        border-radius: 5px;
+
+        background: #795548;
+
+        color: white;
+
+        font-size: 8px;
+
+        font-weight: 700;
+
+        letter-spacing: .8px;
+
+        z-index: 5;
+
+    }
+
+</style>
+
+
+<script>
+
+(function () {
+
+    "use strict";
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const taskId =
+        params.get("task");
+
+
+    if (!taskId) {
+        return;
+    }
+
+
+    function findTaskElement() {
+
+        const elements =
+            document.querySelectorAll(
+                "body *"
+            );
+
+
+        for (
+            const element of elements
+        ) {
+
+            if (
+                element.children.length === 0 &&
+                element.textContent.includes(taskId)
+            ) {
+
+                return element;
+
+            }
+
+        }
+
+
+        return null;
+
+    }
+
+
+    function findCard(element) {
+
+        let current =
+            element;
+
+
+        for (
+            let i = 0;
+            i < 6 && current;
+            i++
+        ) {
+
+            if (
+                current.matches &&
+                current.matches(
+                    "[data-task-card], " +
+                    ".task-card, " +
+                    ".task-item, " +
+                    ".task-board-card, " +
+                    "article, " +
+                    "li"
+                )
+            ) {
+
+                return current;
+
+            }
+
+
+            current =
+                current.parentElement;
+
+        }
+
+
+        return element.parentElement ||
+               element;
+
+    }
+
+
+    function highlightTask() {
+
+        const element =
+            findTaskElement();
+
+
+        if (!element) {
+            return false;
+        }
+
+
+        const card =
+            findCard(element);
+
+
+        card.classList.add(
+            "ty-task-new-highlight"
+        );
+
+
+        card.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+
+        return true;
+
+    }
+
+
+    let attempts = 0;
+
+
+    const timer =
+        setInterval(
+            function () {
+
+                attempts++;
+
+
+                if (
+                    highlightTask() ||
+                    attempts >= 30
+                ) {
+
+                    clearInterval(timer);
+
+                }
+
+            },
+            100
+        );
+
+
+    /*
+     * Giữ URL sạch sau khi đã xử lý.
+     */
+
+    window.history.replaceState(
+        {},
+        document.title,
+        window.location.pathname
+    );
+
+
+})();
+
+</script>
+
+
+<!-- =====================================================
+     TY_TASK_DETAIL_V1
+     Task Detail + DRAFT -> IN PROGRESS
+     ===================================================== -->
+
+<style id="ty-task-detail-style">
+
+    .ty-task-detail-overlay {
+
+        position: fixed;
+        inset: 0;
+
+        z-index: 11000;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+
+        padding-top: 90px;
+
+        opacity: 0;
+        visibility: hidden;
+
+        transition:
+            opacity .15s ease,
+            visibility .15s ease;
+
+    }
+
+
+    .ty-task-detail-overlay.is-open {
+
+        opacity: 1;
+        visibility: visible;
+
+    }
+
+
+    .ty-task-detail-backdrop {
+
+        position: absolute;
+        inset: 0;
+
+        background:
+            rgba(32, 32, 32, .30);
+
+        backdrop-filter:
+            blur(3px);
+
+    }
+
+
+    .ty-task-detail-panel {
+
+        position: relative;
+
+        width:
+            min(680px, calc(100vw - 32px));
+
+        max-height:
+            calc(100vh - 120px);
+
+        overflow-y: auto;
+
+        background:
+            var(--surface, #fff);
+
+        border:
+            1px solid
+            var(--border, #e5e2dc);
+
+        border-radius: 16px;
+
+        box-shadow:
+            0 24px 70px
+            rgba(0, 0, 0, .18);
+
+    }
+
+
+    .ty-task-detail-header {
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        gap: 20px;
+
+        padding: 24px;
+
+        border-bottom:
+            1px solid
+            var(--border, #e5e2dc);
+
+    }
+
+
+    .ty-task-detail-eyebrow {
+
+        margin-bottom: 7px;
+
+        font-size: 9px;
+        font-weight: 700;
+
+        letter-spacing: 1.3px;
+
+        color:
+            var(--brand, #795548);
+
+    }
+
+
+    .ty-task-detail-header h2 {
+
+        margin: 0 0 7px;
+
+        font-size: 24px;
+        font-weight: 600;
+
+    }
+
+
+    .ty-task-detail-id {
+
+        font-size: 11px;
+
+        color:
+            var(--muted, #777);
+
+        font-family:
+            Consolas,
+            monospace;
+
+    }
+
+
+    .ty-task-detail-close {
+
+        width: 34px;
+        height: 34px;
+
+        display: grid;
+        place-items: center;
+
+        flex-shrink: 0;
+
+        border-radius: 8px;
+
+        font-size: 22px;
+
+        color:
+            var(--muted, #777);
+
+        cursor: pointer;
+
+    }
+
+
+    .ty-task-detail-close:hover {
+
+        background: #f4f1ed;
+
+    }
+
+
+    .ty-task-detail-body {
+
+        padding: 24px;
+
+    }
+
+
+    .ty-task-detail-status {
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 20px;
+
+        margin-bottom: 24px;
+
+        padding: 16px;
+
+        background: #f8f7f4;
+
+        border:
+            1px solid
+            var(--border, #e5e2dc);
+
+        border-radius: 10px;
+
+    }
+
+
+    .ty-task-detail-status-label {
+
+        font-size: 10px;
+
+        font-weight: 700;
+
+        letter-spacing: 1px;
+
+        color:
+            var(--muted, #777);
+
+    }
+
+
+    .ty-task-detail-status-value {
+
+        font-size: 12px;
+
+        font-weight: 700;
+
+        color:
+            var(--brand, #795548);
+
+    }
+
+
+    .ty-task-detail-grid {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+
+    }
+
+
+    .ty-task-detail-field {
+
+        padding: 16px;
+
+        background: white;
+
+        border:
+            1px solid
+            var(--border, #e5e2dc);
+
+        border-radius: 10px;
+
+    }
+
+
+    .ty-task-detail-field-label {
+
+        margin-bottom: 7px;
+
+        font-size: 9px;
+
+        font-weight: 700;
+
+        letter-spacing: 1px;
+
+        color:
+            var(--muted, #777);
+
+    }
+
+
+    .ty-task-detail-field-value {
+
+        font-size: 13px;
+
+        font-weight: 600;
+
+        color:
+            var(--text, #202020);
+
+    }
+
+
+    .ty-task-detail-footer {
+
+        display: flex;
+
+        justify-content: flex-end;
+
+        gap: 10px;
+
+        padding: 16px 24px;
+
+        border-top:
+            1px solid
+            var(--border, #e5e2dc);
+
+    }
+
+
+    .ty-task-detail-button {
+
+        height: 40px;
+
+        padding: 0 16px;
+
+        border-radius: 8px;
+
+        font-size: 13px;
+
+        cursor: pointer;
+
+    }
+
+
+    .ty-task-detail-button.secondary {
+
+        background: white;
+
+        border:
+            1px solid
+            var(--border, #e5e2dc);
+
+        color:
+            var(--text, #202020);
+
+    }
+
+
+    .ty-task-detail-button.primary {
+
+        background:
+            var(--brand, #795548);
+
+        color: white;
+
+    }
+
+
+    .ty-task-detail-button.primary:hover {
+
+        background:
+            var(--brand-dark, #5d4037);
+
+    }
+
+
+    /* Task cards */
+
+    [data-ty-task-card] {
+
+        cursor: pointer;
+
+    }
+
+
+    [data-ty-task-card]:hover {
+
+        border-color:
+            var(--brand, #795548) !important;
+
+    }
+
+
+    @media (max-width: 600px) {
+
+        .ty-task-detail-overlay {
+
+            padding-top: 50px;
+
+        }
+
+
+        .ty-task-detail-panel {
+
+            width:
+                calc(100vw - 20px);
+
+        }
+
+
+        .ty-task-detail-header,
+        .ty-task-detail-body {
+
+            padding: 18px;
+
+        }
+
+
+        .ty-task-detail-grid {
+
+            grid-template-columns:
+                1fr;
+
+        }
+
+    }
+
+</style>
+
+
+<script>
+
+(function () {
+
+    "use strict";
+
+
+    function escapeHtml(value) {
+
+        return String(value || "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+    function getTasks() {
+
+        try {
+
+            return JSON.parse(
+                localStorage.getItem("ty-tasks") || "[]"
+            );
+
+        }
+        catch (error) {
+
+            return [];
+
+        }
+
+    }
+
+
+    function saveTasks(tasks) {
+
+        localStorage.setItem(
+            "ty-tasks",
+            JSON.stringify(tasks)
+        );
+
+    }
+
+
+    function getTaskById(id) {
+
+        return getTasks().find(
+            function (task) {
+
+                return task.id === id;
+
+            }
+        );
+
+    }
+
+
+    function formatDate(value) {
+
+        if (!value) {
+            return "—";
+        }
+
+
+        try {
+
+            return new Date(value).toLocaleString(
+                "vi-VN",
+                {
+                    dateStyle: "medium",
+                    timeStyle: "short"
+                }
+            );
+
+        }
+        catch (error) {
+
+            return value;
+
+        }
+
+    }
+
+
+    function createDetailModal() {
+
+        if (
+            document.getElementById(
+                "ty-task-detail-overlay"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        const overlay =
+            document.createElement("div");
+
+
+        overlay.id =
+            "ty-task-detail-overlay";
+
+        overlay.className =
+            "ty-task-detail-overlay";
+
+
+        overlay.innerHTML = `
+
+            <div
+                class="ty-task-detail-backdrop"
+                data-detail-close
+            ></div>
+
+
+            <div
+                class="ty-task-detail-panel"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Chi tiết tác vụ"
+            >
+
+                <header class="ty-task-detail-header">
+
+                    <div>
+
+                        <div class="ty-task-detail-eyebrow">
+                            TASK DETAIL
+                        </div>
+
+                        <h2
+                            data-detail-title
+                        >
+                            Chi tiết tác vụ
+                        </h2>
+
+                        <div
+                            class="ty-task-detail-id"
+                            data-detail-id
+                        ></div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="ty-task-detail-close"
+                        data-detail-close
+                        aria-label="Đóng"
+                    >
+                        ×
+                    </button>
+
+                </header>
+
+
+                <main class="ty-task-detail-body">
+
+                    <div
+                        class="ty-task-detail-status"
+                    >
+
+                        <span
+                            class="ty-task-detail-status-label"
+                        >
+                            TRẠNG THÁI
+                        </span>
+
+                        <span
+                            class="ty-task-detail-status-value"
+                            data-detail-status
+                        ></span>
+
+                    </div>
+
+
+                    <div class="ty-task-detail-grid">
+
+                        <div class="ty-task-detail-field">
+
+                            <div
+                                class="ty-task-detail-field-label"
+                            >
+                                LOẠI TÁC VỤ
+                            </div>
+
+                            <div
+                                class="ty-task-detail-field-value"
+                                data-detail-type
+                            ></div>
+
+                        </div>
+
+
+                        <div class="ty-task-detail-field">
+
+                            <div
+                                class="ty-task-detail-field-label"
+                            >
+                                HỆ THỐNG
+                            </div>
+
+                            <div
+                                class="ty-task-detail-field-value"
+                                data-detail-workspace
+                            ></div>
+
+                        </div>
+
+
+                        <div class="ty-task-detail-field">
+
+                            <div
+                                class="ty-task-detail-field-label"
+                            >
+                                NGÀY TẠO
+                            </div>
+
+                            <div
+                                class="ty-task-detail-field-value"
+                                data-detail-created
+                            ></div>
+
+                        </div>
+
+
+                        <div class="ty-task-detail-field">
+
+                            <div
+                                class="ty-task-detail-field-label"
+                            >
+                                MÃ TÁC VỤ
+                            </div>
+
+                            <div
+                                class="ty-task-detail-field-value"
+                                data-detail-code
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </main>
+
+
+                <footer class="ty-task-detail-footer">
+
+                    <button
+                        type="button"
+                        class="ty-task-detail-button secondary"
+                        data-detail-close
+                    >
+                        Đóng
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="ty-task-detail-button primary"
+                        data-task-start
+                    >
+                        Bắt đầu xử lý
+                    </button>
+
+                </footer>
+
+            </div>
+
+        `;
+
+
+        document.body.appendChild(overlay);
+
+
+        overlay.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    event.target.closest(
+                        "[data-detail-close]"
+                    )
+                ) {
+
+                    closeDetail();
+
+                    return;
+
+                }
+
+
+                if (
+                    event.target.closest(
+                        "[data-task-start]"
+                    )
+                ) {
+
+                    startCurrentTask();
+
+                }
+
+            }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    closeDetail();
+
+                }
+
+            }
+        );
+
+    }
+
+
+    let currentTaskId = null;
+
+
+    function openDetail(taskId) {
+
+        const task =
+            getTaskById(taskId);
+
+
+        if (!task) {
+
+            return;
+
+        }
+
+
+        createDetailModal();
+
+
+        currentTaskId =
+            task.id;
+
+
+        const overlay =
+            document.getElementById(
+                "ty-task-detail-overlay"
+            );
+
+
+        overlay.querySelector(
+            "[data-detail-title]"
+        ).textContent =
+            task.typeTitle || task.type;
+
+
+        overlay.querySelector(
+            "[data-detail-id]"
+        ).textContent =
+            task.id;
+
+
+        overlay.querySelector(
+            "[data-detail-status]"
+        ).textContent =
+            task.status || "DRAFT";
+
+
+        overlay.querySelector(
+            "[data-detail-type]"
+        ).textContent =
+            task.typeTitle || task.type;
+
+
+        overlay.querySelector(
+            "[data-detail-workspace]"
+        ).textContent =
+            task.workspaceTitle || task.workspace;
+
+
+        overlay.querySelector(
+            "[data-detail-created]"
+        ).textContent =
+            formatDate(task.createdAt);
+
+
+        overlay.querySelector(
+            "[data-detail-code]"
+        ).textContent =
+            task.id;
+
+
+        const startButton =
+            overlay.querySelector(
+                "[data-task-start]"
+            );
+
+
+        if (
+            task.status === "DRAFT"
+        ) {
+
+            startButton.disabled = false;
+
+            startButton.textContent =
+                "Bắt đầu xử lý";
+
+            startButton.style.display =
+                "";
+
+            startButton.classList.remove(
+                "qa-review-action"
+            );
+
+        }
+        else if (
+            task.status === "IN PROGRESS"
+        ) {
+
+            startButton.disabled = false;
+
+            startButton.textContent =
+                "Đưa vào QA / Review";
+
+            startButton.style.display =
+                "";
+
+            startButton.classList.add(
+                "qa-review-action"
+            );
+
+        }
+        else if (
+            task.status === "QA / REVIEW"
+        ) {
+
+            startButton.disabled = false;
+
+            startButton.textContent =
+                "Hoàn tất tác vụ";
+
+            startButton.style.display =
+                "";
+
+            startButton.classList.add(
+                "qa-review-action"
+            );
+
+        }
+        else {
+
+            startButton.style.display =
+                "none";
+
+        }
+
+
+        overlay.classList.add(
+            "is-open"
+        );
+
+
+        document.body.classList.add(
+            "ty-task-open"
+        );
+
+    }
+
+
+    function closeDetail() {
+
+        const overlay =
+            document.getElementById(
+                "ty-task-detail-overlay"
+            );
+
+
+        if (!overlay) {
+
+            return;
+
+        }
+
+
+        overlay.classList.remove(
+            "is-open"
+        );
+
+
+        document.body.classList.remove(
+            "ty-task-open"
+        );
+
+
+        currentTaskId = null;
+
+    }
+
+
+    function startCurrentTask() {
+
+        if (!currentTaskId) {
+
+            return;
+
+        }
+
+
+        const tasks =
+            getTasks();
+
+
+        const index =
+            tasks.findIndex(
+                function (task) {
+
+                    return task.id === currentTaskId;
+
+                }
+            );
+
+
+        if (index === -1) {
+
+            return;
+
+        }
+
+
+        if (
+            tasks[index].status === "DRAFT"
+        ) {
+
+            tasks[index].status =
+                "IN PROGRESS";
+
+            tasks[index].startedAt =
+                new Date().toISOString();
+
+        }
+        else if (
+            tasks[index].status === "IN PROGRESS"
+        ) {
+
+            tasks[index].status =
+                "QA / REVIEW";
+
+            tasks[index].qaReviewAt =
+                new Date().toISOString();
+
+        }
+        else if (
+            tasks[index].status === "QA / REVIEW"
+        ) {
+
+            tasks[index].status =
+                "DONE";
+
+            tasks[index].completedAt =
+                new Date().toISOString();
+
+        }
+        else {
+
+            return;
+
+        }
+
+
+        saveTasks(tasks);
+
+
+        closeDetail();
+
+
+        window.location.reload();
+
+    }
+
+
+    function findTaskIdFromTarget(target) {
+
+        let current =
+            target;
+
+
+        for (
+            let i = 0;
+            i < 8 &&
+            current &&
+            current !== document.body;
+            i++
+        ) {
+
+            const text =
+                current.textContent || "";
+
+
+            const match =
+                text.match(
+                    /TASK-\d+/
+                );
+
+
+            if (match) {
+
+                return match[0];
+
+            }
+
+
+            current =
+                current.parentElement;
+
+        }
+
+
+        return null;
+
+    }
+
+
+    function markTaskCards() {
+
+        const all =
+            document.querySelectorAll(
+                "body *"
+            );
+
+
+        all.forEach(
+            function (element) {
+
+                if (
+                    element.children.length === 0 &&
+                    /^TASK-\d+$/.test(
+                        element.textContent.trim()
+                    )
+                ) {
+
+                    let card =
+                        element.parentElement;
+
+
+                    for (
+                        let i = 0;
+                        i < 5 &&
+                        card &&
+                        card !== document.body;
+                        i++
+                    ) {
+
+                        if (
+                            card.children.length >= 2
+                        ) {
+
+                            card.setAttribute(
+                                "data-ty-task-card",
+                                "true"
+                            );
+
+                            break;
+
+                        }
+
+
+                        card =
+                            card.parentElement;
+
+                    }
+
+                }
+
+            }
+        );
+
+    }
+
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target.closest(
+                    "#ty-task-detail-overlay"
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            const taskId =
+                findTaskIdFromTarget(
+                    event.target
+                );
+
+
+            if (!taskId) {
+
+                return;
+
+            }
+
+
+            const task =
+                getTaskById(taskId);
+
+
+            if (!task) {
+
+                return;
+
+            }
+
+
+            event.preventDefault();
+            event.stopPropagation();
+
+
+            openDetail(taskId);
+
+        },
+        true
+    );
+
+
+    function initializeTaskDetail() {
+
+        markTaskCards();
+
+    }
+
+
+    if (
+        document.readyState === "loading"
+    ) {
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            initializeTaskDetail
+        );
+
+    }
+    else {
+
+        initializeTaskDetail();
+
+    }
+
+
+})();
+
+</script>
+
+
+<!-- =====================================================
+     TY_TASK_QA_REVIEW_V1
+     IN PROGRESS -> QA / REVIEW
+     ===================================================== -->
+
+<style id="ty-task-qa-review-style">
+
+    .ty-task-detail-button.qa-review-action {
+
+        background:
+            var(--brand, #795548);
+
+        color: white;
+
+    }
+
+
+    .ty-task-detail-button.qa-review-action:hover {
+
+        background:
+            var(--brand-dark, #5d4037);
+
+    }
+
+</style>
+
+
+<script>
+
+(function () {
+
+    "use strict";
+
+
+    const STORAGE_KEY = "ty-tasks";
+
+
+    function getTasks() {
+
+        try {
+
+            return JSON.parse(
+                localStorage.getItem(
+                    STORAGE_KEY
+                ) || "[]"
+            );
+
+        }
+        catch (error) {
+
+            return [];
+
+        }
+
+    }
+
+
+    function saveTasks(tasks) {
+
+        localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify(tasks)
+        );
+
+    }
+
+
+    function getCurrentTaskId() {
+
+        const idElement =
+            document.querySelector(
+                "[data-detail-id]"
+            );
+
+
+        if (!idElement) {
+
+            return null;
+
+        }
+
+
+        return idElement.textContent.trim();
+
+    }
+
+
+    function getCurrentTask() {
+
+        const id =
+            getCurrentTaskId();
+
+
+        if (!id) {
+
+            return null;
+
+        }
+
+
+        return getTasks().find(
+            function (task) {
+
+                return task.id === id;
+
+            }
+        ) || null;
+
+    }
+
+
+    function configureActionButton() {
+
+        const overlay =
+            document.getElementById(
+                "ty-task-detail-overlay"
+            );
+
+
+        if (!overlay) {
+
+            return;
+
+        }
+
+
+        if (
+            !overlay.classList.contains(
+                "is-open"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        const button =
+            overlay.querySelector(
+                "[data-task-start]"
+            );
+
+
+        if (!button) {
+
+            return;
+
+        }
+
+
+        const task =
+            getCurrentTask();
+
+
+        if (!task) {
+
+            return;
+
+        }
+
+
+        if (
+            task.status === "IN PROGRESS"
+        ) {
+
+            button.disabled = false;
+
+            button.style.display = "";
+
+            button.textContent =
+                "Đưa vào QA / Review";
+
+            button.classList.add(
+                "qa-review-action"
+            );
+
+            return;
+
+        }
+
+
+        if (
+            task.status === "QA / REVIEW"
+        ) {
+
+            button.disabled = false;
+
+            button.style.display = "";
+
+            button.textContent =
+                "Hoàn tất tác vụ";
+
+            button.classList.add(
+                "qa-review-action"
+            );
+
+            return;
+
+        }
+
+
+        button.classList.remove(
+            "qa-review-action"
+        );
+
+    }
+
+
+    function moveCurrentTaskToQA() {
+
+        const task =
+            getCurrentTask();
+
+
+        if (!task) {
+
+            return;
+
+        }
+
+
+        if (
+            task.status !== "IN PROGRESS"
+        ) {
+
+            return;
+
+        }
+
+
+        const tasks =
+            getTasks();
+
+
+        const index =
+            tasks.findIndex(
+                function (item) {
+
+                    return item.id === task.id;
+
+                }
+            );
+
+
+        if (index === -1) {
+
+            return;
+
+        }
+
+
+        tasks[index].status =
+            "QA / REVIEW";
+
+
+        tasks[index].qaReviewAt =
+            new Date().toISOString();
+
+
+        saveTasks(tasks);
+
+
+        window.location.reload();
+
+    }
+
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            const button =
+                event.target.closest(
+                    "[data-task-start]"
+                );
+
+
+            if (!button) {
+
+                return;
+
+            }
+
+
+            const task =
+                getCurrentTask();
+
+
+            if (!task) {
+
+                return;
+
+            }
+
+
+            if (
+                task.status !== "IN PROGRESS"
+            ) {
+
+                return;
+
+            }
+
+
+            event.preventDefault();
+            event.stopPropagation();
+            event.stopImmediatePropagation();
+
+
+            moveCurrentTaskToQA();
+
+        },
+        true
+    );
+
+
+    const observer =
+        new MutationObserver(
+            function () {
+
+                configureActionButton();
+
+            }
+        );
+
+
+    function initializeQAReview() {
+
+        const overlay =
+            document.getElementById(
+                "ty-task-detail-overlay"
+            );
+
+
+        if (!overlay) {
+
+            return;
+
+        }
+
+
+        observer.observe(
+            overlay,
+            {
+                attributes: true,
+                attributeFilter: [
+                    "class"
+                ],
+                subtree: true
+            }
+        );
+
+
+        configureActionButton();
+
+    }
+
+
+    if (
+        document.readyState === "loading"
+    ) {
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            initializeQAReview
+        );
+
+    }
+    else {
+
+        initializeQAReview();
+
+    }
+
+
+})();
+
+</script>
+
+</body>
+
+</html>
+
+
+
+
