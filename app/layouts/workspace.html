@@ -32,6 +32,7 @@
             <a
                 href="../index.html"
                 class="workspace-brand"
+                data-nav-home
             >
 
                 <span class="workspace-brand-mark">
@@ -54,9 +55,15 @@
                 <button
                     class="workspace-search"
                     type="button"
+                    aria-label="Tìm kiếm"
                 >
+
                     🔍
-                    <span>Tìm kiếm...</span>
+
+                    <span>
+                        Tìm kiếm...
+                    </span>
+
                 </button>
 
 
@@ -65,7 +72,9 @@
                     type="button"
                     aria-label="Thông báo"
                 >
+
                     🔔
+
                 </button>
 
 
@@ -98,7 +107,10 @@
                  SIDEBAR
                  ===================================== -->
 
-            <aside class="workspace-sidebar">
+            <aside
+                class="workspace-sidebar"
+                aria-label="Điều hướng hệ thống"
+            >
 
                 <div class="workspace-sidebar-title">
                     HỆ THỐNG
@@ -110,6 +122,7 @@
                 <a
                     href="../index.html"
                     class="workspace-nav-item"
+                    data-workspace="dashboard"
                 >
 
                     <span>
@@ -128,6 +141,7 @@
                 <a
                     href="knowledge.html"
                     class="workspace-nav-item"
+                    data-workspace="knowledge"
                 >
 
                     <span>
@@ -146,6 +160,7 @@
                 <a
                     href="company.html"
                     class="workspace-nav-item"
+                    data-workspace="company"
                 >
 
                     <span>
@@ -164,6 +179,7 @@
                 <a
                     href="brand.html"
                     class="workspace-nav-item"
+                    data-workspace="brand"
                 >
 
                     <span>
@@ -182,6 +198,7 @@
                 <a
                     href="products.html"
                     class="workspace-nav-item"
+                    data-workspace="products"
                 >
 
                     <span>
@@ -200,6 +217,7 @@
                 <a
                     href="qa.html"
                     class="workspace-nav-item"
+                    data-workspace="qa"
                 >
 
                     <span>
@@ -230,10 +248,14 @@
                          BREADCRUMB
                          ================================= -->
 
-                    <div class="workspace-breadcrumb">
+                    <nav
+                        class="workspace-breadcrumb"
+                        aria-label="Breadcrumb"
+                    >
 
                         <a
                             href="../index.html"
+                            data-nav-home
                         >
                             Dashboard
                         </a>
@@ -242,11 +264,14 @@
                             /
                         </span>
 
-                        <span>
+                        <span
+                            class="workspace-breadcrumb-current"
+                            data-breadcrumb-current
+                        >
                             Workspace
                         </span>
 
-                    </div>
+                    </nav>
 
 
 
@@ -263,12 +288,16 @@
                             </span>
 
 
-                            <h1>
+                            <h1
+                                data-workspace-title
+                            >
                                 Workspace
                             </h1>
 
 
-                            <p>
+                            <p
+                                data-workspace-description
+                            >
                                 Không gian làm việc của hệ thống.
                             </p>
 
@@ -277,9 +306,11 @@
 
                         <div class="workspace-actions">
 
+
                             <button
                                 class="workspace-action secondary"
                                 type="button"
+                                data-nav-back
                             >
                                 Quay lại
                             </button>
@@ -288,9 +319,11 @@
                             <button
                                 class="workspace-action primary"
                                 type="button"
+                                data-new-task
                             >
                                 Tác vụ mới
                             </button>
+
 
                         </div>
 
@@ -302,7 +335,10 @@
                          CONTENT
                          ================================= -->
 
-                    <section class="workspace-content">
+                    <section
+                        class="workspace-content"
+                        data-workspace-content
+                    >
 
                         <div class="workspace-placeholder">
 
